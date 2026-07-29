@@ -365,3 +365,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* Services are a static bento grid now; the old stacked-deck scroll effect was removed. */
 });
+window.toggleLanguage = function() {
+  var isRTL = document.documentElement.getAttribute("dir") === "rtl";
+  var newDir = isRTL ? "ltr" : "rtl";
+  var newLang = isRTL ? "en" : "ar";
+  
+  if (!document.startViewTransition) {
+    applyLanguage(newLang, newDir);
+    return;
+  }
+  
+  document.documentElement.classList.remove("is-switching-rtl", "is-switching-ltr");
+  document.documentElement.classList.add(isRTL ? "is-switching-ltr" : "is-switching-rtl");
+  
+  var transition = document.startViewTransition(function() {
+    applyLanguage(newLang, newDir);
+  });
+  
+  transition.finished.finally(function() {
+    document.documentElement.classList.remove("is-switching-rtl", "is-switching-ltr");
+  });
+};
+
+function applyLanguage(lang, dir) {
+  document.documentElement.setAttribute("lang", lang);
+  document.documentElement.setAttribute("dir", dir);
+  
+  var enWrappers = document.querySelectorAll(".lang-en");
+  var arWrappers = document.querySelectorAll(".lang-ar");
+  
+  if (dir === "rtl") {
+    enWrappers.forEach(function(el) { el.style.display = "none"; });
+    arWrappers.forEach(function(el) { el.style.display = "block"; });
+  } else {
+    enWrappers.forEach(function(el) { el.style.display = "block"; });
+    arWrappers.forEach(function(el) { el.style.display = "none"; });
+  }
+  
+  if (window.ScrollTrigger) {
+    setTimeout(function() {
+      ScrollTrigger.refresh();
+    }, 100);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "keyframe-final",
+  "version": "1.0.0",
+  "description": "Keyframe Global Creative Studio Website",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "start": "python3 -m http.server 8080",
+    "serve": "npx serve -l 8080"
+  }
+}

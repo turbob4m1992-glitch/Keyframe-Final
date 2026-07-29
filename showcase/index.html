@@ -4,38 +4,33 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Showcase | The Concept Lab | Keyframe Global</title>
-<meta name="description" content="Scrub through the Keyframe Global reel: live client launches, AI sketch-to-render pipelines, identity systems, mobile products, cinematic post, and campaign worlds, presented as one interactive timeline." />
-
+<meta name="description" content="Scrub through the Keyframe Global reel: AI visualization, identity systems, mobile products, cinematic post, and campaign worlds." />
 <meta name="author" content="Yousef Balawi, Keyframe Global" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <link rel="canonical" href="https://keyframeglobal.com/showcase/" />
 <link rel="icon" type="image/png" href="../keyframe-favicon.png" />
 <link rel="apple-touch-icon" href="../keyframe-favicon.png" />
-<link rel="prefetch" href="../" as="document" /><!-- warm the home page for instant navigation -->
+<link rel="prefetch" href="../" as="document" />
 <meta name="color-scheme" content="dark light" />
 <meta name="theme-color" content="#08080A" id="metaThemeColor" />
 <script>
 (function () {
   try {
     var t = localStorage.getItem("theme");
-    if (!t) t = "dark";                 /* dark is the brand default, regardless of the OS setting */
+    if (!t) t = "dark";
     var r = document.documentElement;
     r.setAttribute("data-theme", t);
-    r.style.colorScheme = t;          /* paint the correct canvas immediately, no white flash between pages */
+    r.style.colorScheme = t;
     r.style.background = t === "light" ? "#F4F1EA" : "#08080A";
-  } catch (e) { /* private mode */ }
+  } catch (e) {}
 })();
 </script>
-
 <script>
-/* Lite mode: skip the heavy animation stack on constrained devices */
 (function () {
   try {
     var c = navigator.connection || {};
     var lite = c.saveData === true ||
-               /(^|-)2g/.test(c.effectiveType || "") ||
-               (navigator.deviceMemory && navigator.deviceMemory < 4) ||
-               (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 3);
+               /(^|-)2g/.test(c.effectiveType || "");
     if (lite) {
       window.__KF_LITE = true;
       document.documentElement.classList.add("kf-lite");
@@ -44,22 +39,18 @@
 })();
 </script>
 
-
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Showcase | The Concept Lab | Keyframe Global" />
-<meta property="og:description" content="Six sequences, thirty-four stills, one cinematic standard: live web launches, AI visualization pipelines, identity systems, mobile apps, film post, and digital campaigns." />
+<meta property="og:description" content="AI visualization, identity systems, mobile products, cinematic post, and digital campaigns." />
 <meta property="og:url" content="https://keyframeglobal.com/showcase/" />
-<meta property="og:image" content="https://keyframeglobal.com/og-image.jpg" />
+<meta property="og:image" content="https://keyframeglobal.com/og-image.webp" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Showcase | The Concept Lab | Keyframe Global" />
-<meta name="twitter:description" content="Six sequences, thirty-four stills, one cinematic standard: live web launches, AI visualization pipelines, identity systems, mobile apps, film post, and digital campaigns." />
-<meta name="twitter:image" content="https://keyframeglobal.com/og-image.jpg" />
+<meta name="twitter:description" content="AI visualization, identity systems, mobile products, cinematic post, and digital campaigns." />
+<meta name="twitter:image" content="https://keyframeglobal.com/og-image.webp" />
 
 <link rel="preload" href="../fonts/fraunces-300-900.woff2" as="font" type="font/woff2" crossorigin />
-
-
-
-<link rel="stylesheet" href="../css/main.min.css?v=20260730" />
+<link rel="stylesheet" href="../css/main.min.css?v=20260806" />
 <noscript>
 <style>
   .reveal, .split-h, .reveal-text { opacity: 1 !important; transform: none !important; }
@@ -75,98 +66,111 @@
 ]
 </script>
 <style>
-/* ============ THE CONCEPT LAB ============ */
-.lab-sec { padding: 96px 0; }
-.lab-sec:first-of-type { padding-top: 40px; }
+/* ============ THE CONCEPT LAB, REBUILT ============ */
 
-/* hero */
+/* --- sections --- */
+.lab-sec { padding: 80px 0 40px; }
+.lab-sec:first-of-type { padding-top: 30px; }
+
+/* --- hero meta --- */
 .lab-hero-meta { display: flex; flex-wrap: wrap; gap: 12px 34px; margin-top: 34px; font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-muted); }
 .lab-hero-meta b { color: var(--accent); font-weight: 500; }
 .lab-hero-hint { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-muted); }
 .lab-hero-hint .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: labPulse 2s infinite; }
 @keyframes labPulse { 0%,100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); } 50% { box-shadow: 0 0 0 7px transparent; } }
 
-/* ---------- frames (shared card chrome) ---------- */
-.lab-frame { position: relative; margin: 0; }
-.lab-media { position: relative; overflow: hidden; border-radius: 20px; border: 1px solid var(--line); background: var(--bg-2); transform: translateZ(0); transition: border-color 0.45s; }
-.lab-frame:hover .lab-media { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
-.lab-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.7s; }
-.lab-frame:hover .lab-media img { transform: scale(1.045); }
-/* viewfinder corners */
-.lab-media::before, .lab-media::after { content: ""; position: absolute; width: 22px; height: 22px; z-index: 3; opacity: 0; transition: opacity 0.4s; pointer-events: none; }
-.lab-media::before { top: 12px; left: 12px; border-top: 1.5px solid var(--accent); border-left: 1.5px solid var(--accent); }
-.lab-media::after { bottom: 12px; right: 12px; border-bottom: 1.5px solid var(--accent); border-right: 1.5px solid var(--accent); }
-.lab-frame:hover .lab-media::before, .lab-frame:hover .lab-media::after { opacity: 0.9; }
-/* chips */
-.lab-chip { position: absolute; z-index: 4; font-family: "IBM Plex Mono", monospace; font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); pointer-events: none; }
-.lab-chip.tag { top: 14px; left: 14px; color: var(--fg); background: rgba(8,8,10,0.55); border: 1px solid var(--line-strong); }
-[data-theme="light"] .lab-chip.tag { background: rgba(244,241,234,0.7); }
-.lab-chip.tag.live { color: #0A0A0A; background: var(--accent); border-color: var(--accent); display: inline-flex; align-items: center; gap: 7px; }
-.lab-chip.tag.live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #0A0A0A; animation: labPulse 2s infinite; }
-.lab-chip.tc { top: 14px; right: 14px; color: var(--accent); background: rgba(8,8,10,0.55); border: 1px solid rgba(235,181,78,0.3); opacity: 0; transform: translateY(-4px); transition: opacity 0.4s, transform 0.4s; }
-.lab-frame:hover .lab-chip.tc { opacity: 1; transform: none; }
-/* caption below media */
-.lab-cap { display: flex; align-items: baseline; gap: 14px; padding: 16px 6px 0; }
-.lab-cap .no { font-family: "IBM Plex Mono", monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: var(--accent); white-space: nowrap; }
-.lab-cap h3 { font-family: "Fraunces", serif; font-weight: 440; font-size: 1.22rem; letter-spacing: -0.02em; margin: 0; }
-.lab-cap p { color: var(--fg-muted); font-size: 0.85rem; line-height: 1.55; margin: 4px 0 0; }
-.lab-frame[data-lb] { cursor: zoom-in; }
-
-/* ---------- live client cinema features ---------- */
-.lab-cinema { display: grid; gap: 40px; }
-.lab-feature .lab-media { aspect-ratio: 16 / 9; border-radius: 24px; }
-.lab-feature .lab-media img { transform: scale(1.12); will-change: transform; }
-.lab-feature:hover .lab-media img { transform: scale(1.16); }
-.lab-feature .lab-shade { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to top, rgba(5,5,7,0.82) 0%, rgba(5,5,7,0.25) 34%, transparent 60%); pointer-events: none; }
-.lab-feature .lab-info { position: absolute; z-index: 4; left: 28px; right: 28px; bottom: 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
-.lab-feature .lab-info h3 { font-family: "Fraunces", serif; font-weight: 460; font-size: clamp(1.5rem, 3.1vw, 2.5rem); letter-spacing: -0.02em; margin: 0; color: #F5F2EC; }
-.lab-feature .lab-info p { margin: 8px 0 0; max-width: 560px; color: rgba(245,242,236,0.72); font-size: 0.92rem; line-height: 1.55; }
-.lab-feature .lab-open { flex: none; display: inline-flex; align-items: center; gap: 8px; font-family: "IBM Plex Mono", monospace; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(235,181,78,0.4); border-radius: 999px; padding: 9px 15px; backdrop-filter: blur(8px); background: rgba(8,8,10,0.35); transition: background 0.35s, color 0.35s; }
-.lab-feature:hover .lab-open { background: var(--accent); color: #0A0A0A; }
-
-/* ---------- storyboard grid (asymmetric) ---------- */
-.lab-board { display: grid; grid-template-columns: repeat(12, 1fr); gap: 26px; }
-.lab-board .lab-frame { grid-column: span 12; }
-@media (min-width: 760px) {
-  .lab-board .s5 { grid-column: span 5; }
-  .lab-board .s7 { grid-column: span 7; }
-  .lab-board .s6 { grid-column: span 6; }
-  .lab-board .s4 { grid-column: span 4; }
-  .lab-board .s8 { grid-column: span 8; }
-  .lab-board .s12 { grid-column: span 12; }
-  .lab-board .drop { transform: translateY(46px); }
+/* --- showcase grid: uniform cards --- */
+.sc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 }
-.lab-board .lab-media { aspect-ratio: 1 / 1; }
-.lab-board .r43 .lab-media { aspect-ratio: 4 / 3; }
-/* Desktop: every showcase image 10% smaller (frame shrinks to 90%, centered in its cell) */
-@media (min-width: 1024px) {
-  .lab-frame { width: 90%; justify-self: center; margin-left: auto; margin-right: auto; }
+@media (min-width: 1200px) {
+  .sc-grid { grid-template-columns: repeat(4, 1fr); }
 }
-/* full-width frames render as cinematic banners, never viewport-tall squares */
-@media (min-width: 760px) { .lab-board .s12 .lab-media { aspect-ratio: 21 / 9; } }
-.lab-board .s12 .lab-media { max-height: 78vh; }
-.lab-board .r169 .lab-media { aspect-ratio: 16 / 9; }
-.lab-board .r167 .lab-media { aspect-ratio: 16 / 7; }
-.lab-board.pad-drop { padding-bottom: 46px; }
+@media (max-width: 600px) {
+  .sc-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
 
-/* ---------- AI compare (sketch to render wipe) ---------- */
-.lab-pairs { display: grid; grid-template-columns: 1fr; gap: 34px; }
-@media (min-width: 860px) { .lab-pairs { grid-template-columns: 1fr 1fr; } }
-.lab-compare { position: relative; overflow: hidden; border-radius: 20px; border: 1px solid var(--line); aspect-ratio: 1 / 1; cursor: ew-resize; touch-action: pan-y; --x: 62%; }
-.lab-compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; }
-.lab-compare .lab-after { clip-path: inset(0 0 0 var(--x)); }
-.lab-compare .lab-blade { position: absolute; top: 0; bottom: 0; left: var(--x); width: 2px; margin-left: -1px; z-index: 5; background: linear-gradient(to bottom, transparent, var(--accent) 18%, var(--accent) 82%, transparent); pointer-events: none; }
-.lab-compare .lab-knob { position: absolute; top: 50%; left: var(--x); transform: translate(-50%, -50%); z-index: 6; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0A0A; background: var(--accent); box-shadow: 0 4px 22px rgba(0,0,0,0.45); pointer-events: none; }
-.lab-compare .lab-knob svg { width: 18px; height: 18px; }
-.lab-compare .cl { position: absolute; z-index: 4; bottom: 14px; font-family: "IBM Plex Mono", monospace; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; background: rgba(8,8,10,0.6); backdrop-filter: blur(6px); pointer-events: none; }
-.lab-compare .cl.a { left: 14px; color: #F5F2EC; border: 1px solid rgba(245,242,236,0.25); }
-.lab-compare .cl.b { right: 14px; color: var(--accent); border: 1px solid rgba(235,181,78,0.35); }
-.lab-compare .lab-expand { position: absolute; top: 12px; right: 12px; z-index: 7; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--fg); background: rgba(8,8,10,0.55); border: 1px solid var(--line-strong); backdrop-filter: blur(8px); cursor: zoom-in; transition: color 0.3s, background 0.3s; }
-.lab-compare .lab-expand:hover { background: var(--accent); color: #0A0A0A; }
-.lab-compare .lab-expand svg { width: 16px; height: 16px; }
-.lab-compare:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* --- card --- */
+.sc-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  cursor: zoom-in;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+.sc-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+}
+.sc-card .sc-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.sc-card:hover .sc-img { transform: scale(1.05); }
+.sc-card.wide .sc-img { aspect-ratio: 16 / 9; }
 
-/* ---------- timeline dock ---------- */
+/* viewfinder corners on hover */
+.sc-card::before, .sc-card::after { content: ""; position: absolute; width: 18px; height: 18px; z-index: 3; opacity: 0; transition: opacity 0.35s; pointer-events: none; }
+.sc-card::before { top: 10px; left: 10px; border-top: 1.5px solid var(--accent); border-left: 1.5px solid var(--accent); }
+.sc-card::after  { bottom: 10px; right: 10px; border-bottom: 1.5px solid var(--accent); border-right: 1.5px solid var(--accent); }
+.sc-card:hover::before, .sc-card:hover::after { opacity: .85; }
+
+/* chip */
+.sc-chip { position: absolute; top: 10px; left: 10px; z-index: 4; font-family: "IBM Plex Mono", monospace; font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); pointer-events: none; }
+[data-theme="dark"]  .sc-chip { color: var(--fg); background: rgba(8,8,10,0.55); border: 1px solid var(--line-strong); }
+[data-theme="light"] .sc-chip { color: var(--fg); background: rgba(244,241,234,0.72); border: 1px solid var(--line); }
+
+/* caption */
+.sc-info { padding: 14px 14px 16px; }
+.sc-info h3 { font-family: "Fraunces", serif; font-weight: 440; font-size: 1rem; letter-spacing: -0.02em; margin: 0; }
+.sc-info p  { color: var(--fg-muted); font-size: 0.78rem; line-height: 1.5; margin: 4px 0 0; }
+.sc-info .sc-tag { display: inline-block; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+
+/* --- compare slider cards --- */
+.sc-compare-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+}
+.sc-compare-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  --x: 50%;
+}
+.sc-compare-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; }
+.sc-compare-wrap .lab-after { clip-path: inset(0 0 0 var(--x)); }
+.sc-compare-wrap .lab-blade { position: absolute; top: 0; bottom: 0; left: var(--x); width: 2px; margin-left: -1px; z-index: 5; background: linear-gradient(to bottom, transparent, var(--accent) 18%, var(--accent) 82%, transparent); pointer-events: none; }
+.sc-compare-wrap .lab-knob { position: absolute; top: 50%; left: var(--x); transform: translate(-50%, -50%); z-index: 6; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0A0A; background: var(--accent); box-shadow: 0 4px 18px rgba(0,0,0,0.4); pointer-events: none; }
+.sc-compare-wrap .lab-knob svg { width: 16px; height: 16px; }
+.sc-compare-wrap .cl { position: absolute; z-index: 4; bottom: 10px; font-family: "IBM Plex Mono", monospace; font-size: 0.52rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(8,8,10,0.6); backdrop-filter: blur(6px); pointer-events: none; }
+.sc-compare-wrap .cl.a { left: 10px; color: #F5F2EC; border: 1px solid rgba(245,242,236,0.25); }
+.sc-compare-wrap .cl.b { right: 10px; color: var(--accent); border: 1px solid rgba(235,181,78,0.35); }
+.sc-compare-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* --- section filter pills --- */
+.sc-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.sc-filters button, .sc-filters a {
+  appearance: none; border: 1px solid var(--line); background: transparent; color: var(--fg-muted);
+  font-family: "IBM Plex Mono", monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 8px 16px; border-radius: 999px; cursor: pointer; text-decoration: none; display: inline-block;
+  transition: all 0.3s;
+}
+.sc-filters button:hover, .sc-filters a:hover { border-color: var(--accent); color: var(--accent); }
+.sc-filters button.active, .sc-filters a.active { background: var(--accent); color: #0A0A0A; border-color: var(--accent); }
+
+/* --- timeline dock (kept) --- */
 .lab-dock { position: fixed; left: 50%; transform: translateX(-50%); bottom: 16px; z-index: 70; width: min(1080px, calc(100% - 20px)); padding: 12px 20px 10px; border: 1px solid var(--line-strong); border-radius: 18px; background: color-mix(in srgb, var(--bg) 72%, transparent); backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3); box-shadow: 0 12px 40px rgba(0,0,0,0.35); transition: opacity 0.5s, transform 0.5s; }
 .lab-dock.is-hidden { opacity: 0; transform: translateX(-50%) translateY(24px); pointer-events: none; }
 .lab-track { position: relative; height: 3px; border-radius: 2px; margin-bottom: 10px; background: repeating-linear-gradient(90deg, var(--line-strong) 0 1px, transparent 1px calc(100% / 24)); }
@@ -188,7 +192,7 @@
   .lab-mark .lbl-s { display: block; }
 }
 
-/* ---------- lightbox ---------- */
+/* --- lightbox --- */
 .lab-lb { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px; background: rgba(5,5,7,0.93); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); opacity: 0; pointer-events: none; transition: opacity 0.35s; }
 .lab-lb.open { opacity: 1; pointer-events: auto; }
 .lab-lb img { max-width: min(1280px, 100%); max-height: calc(100vh - 150px); border-radius: 14px; border: 1px solid var(--line-strong); box-shadow: 0 30px 90px rgba(0,0,0,0.6); }
@@ -205,30 +209,10 @@
 @media (max-width: 720px) { .lab-lb .pv { left: 8px; } .lab-lb .nx { right: 8px; } }
 html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
 
-/* breathing room above the fixed dock at page end */
-.lab-endpad { height: 40px; }
-@media (prefers-reduced-motion: reduce) {
-  .lab-media img, .lab-feature .lab-media img { transition: none; }
-}
 
-@media (max-width: 760px) {
-  .lab-feature {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .lab-feature .lab-media { 
-    aspect-ratio: 16 / 9;
-  }
-  .lab-feature .lab-info {
-    position: relative; 
-    left: auto; right: auto; bottom: auto;
-    flex-direction: column; 
-    align-items: flex-start;
-    padding: 0 4px;
-  }
-  .lab-feature .lab-info h3 { font-size: 1.6rem; margin-bottom: 8px; }
-  .lab-feature .lab-shade { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-card .sc-img { transition: none; }
 }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -242,9 +226,7 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
 </head>
 <body>
 
-
 <div id="playhead" aria-hidden="true"></div>
-
 <canvas id="field"></canvas>
 <div class="atmos-grid" aria-hidden="true"></div>
 <div class="atmos-grain" aria-hidden="true"></div>
@@ -254,67 +236,27 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
 <!-- NAV -->
 <header class="nav" id="nav">
   <a class="brand" href="../#top" aria-label="Keyframe Global home">
-    <img src="../logo-dark.png" alt="Keyframe Global" class="mark logo-dark" style="height: 28px; width: auto;" />
-    <img src="../keyframe_logo_black.png?v=2" alt="Keyframe Global" class="mark logo-light" style="height: 28px; width: auto;" />
+    <img src="../logo-dark.webp" alt="Keyframe Global" class="mark logo-dark" style="height: 28px; width: auto;" />
+    <img src="../keyframe_logo_black.webp?v=2" alt="Keyframe Global" class="mark logo-light" style="height: 28px; width: auto;" />
     <span class="tc" id="navtc">00:00:00:01</span>
   </a>
   <ul class="nav-links" aria-label="Primary">
-    <li style="--gradient-from: #EBB54E; --gradient-to: #D98A2E;" class="nav-item">
-      <a href="../#top">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-        <span class="nav-title">Home</span>
-      </a>
-    </li>
-    <li style="--gradient-from: #7CC4C0; --gradient-to: #4E9E99;" class="nav-item">
-      <a href="../#services">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
-        <span class="nav-title">Services</span>
-      </a>
-    </li>
-    <li style="--gradient-from: #EBB54E; --gradient-to: #7CC4C0;" class="nav-item">
-      <a href="../work/">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span>
-        <span class="nav-title">Work</span>
-      </a>
-    </li>
-    <li style="--gradient-from: #EBB54E; --gradient-to: #7CC4C0;" class="nav-item active" aria-current="page">
-      <a href="./">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/></svg></span>
-        <span class="nav-title">Showcase</span>
-      </a>
-    </li>
-    <li style="--gradient-from: #D98A2E; --gradient-to: #EBB54E;" class="nav-item">
-      <a href="../#method">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
-        <span class="nav-title">Method</span>
-      </a>
-    </li>
-    <li style="--gradient-from: #4E9E99; --gradient-to: #7CC4C0;" class="nav-item">
-      <a href="../#voices">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
-        <span class="nav-title" style="color: #FFD700;">5 ★</span>
-      </a>
-    </li>
-    <li style="--gradient-from: #EBB54E; --gradient-to: #E0654E;" class="nav-item">
-      <a href="#contact">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-        <span class="nav-title">Contact</span>
-      </a>
-    </li>
-    <li style="--gradient-from: #E0654E; --gradient-to: #EBB54E;" class="nav-item">
-      <a href="../insights/">
-        <span class="nav-bg"></span><span class="nav-glow"></span>
-        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
-        <span class="nav-title">Insights</span>
-      </a>
-    </li>
+
+    <li style="--gradient-from: #EBB54E; --gradient-to: #D98A2E;" class="nav-item"><a href="../#top"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="nav-title">Home</span></a></li>
+
+    <li style="--gradient-from: #7CC4C0; --gradient-to: #4E9E99;" class="nav-item"><a href="../#services"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span class="nav-title">Services</span></a></li>
+
+    <li style="--gradient-from: #D98A2E; --gradient-to: #EBB54E;" class="nav-item"><a href="../#method"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><span class="nav-title">Method</span></a></li>
+
+    <li style="--gradient-from: #4E9E99; --gradient-to: #7CC4C0;" class="nav-item"><a href="../#voices"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="nav-title" style="color: #FFD700;">5 &#9733;</span></a></li>
+
+    <li style="--gradient-from: #EBB54E; --gradient-to: #7CC4C0;" class="nav-item"><a href="../work/"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span><span class="nav-title">Work</span></a></li>
+
+    <li style="--gradient-from: #EBB54E; --gradient-to: #7CC4C0;" class="nav-item active" aria-current="page"><a href="./"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/></svg></span><span class="nav-title">Showcase</span></a></li>
+
+    <li style="--gradient-from: #E0654E; --gradient-to: #EBB54E;" class="nav-item"><a href="../insights/"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span><span class="nav-title">Insights</span></a></li>
+
+    <li style="--gradient-from: #EBB54E; --gradient-to: #E0654E;" class="nav-item"><a href="#contact"><span class="nav-bg"></span><span class="nav-glow"></span><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="nav-title">Contact</span></a></li>
   </ul>
   <div class="nav-right">
     <button class="theme-toggle" id="themeBtn" aria-label="Toggle light and dark theme">
@@ -322,22 +264,28 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
       <svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
     </button>
     <a href="#contact" class="btn btn-primary magnetic"><span class="dot"></span>Start a project</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span><span></span>
-    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
   </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <nav aria-label="Mobile">
+
     <a class="mm-link" href="../#top" style="--i:0"><span class="no">01</span>Home</a>
+
     <a class="mm-link" href="../#services" style="--i:1"><span class="no">02</span>Services</a>
-    <a class="mm-link" href="../work/" style="--i:2"><span class="no">03</span>Work</a>
-    <a class="mm-link" href="./" style="--i:3" aria-current="page"><span class="no">04</span>Showcase</a>
-    <a class="mm-link" href="../#method" style="--i:4"><span class="no">05</span>Method</a>
-    <a class="mm-link" href="../#voices" style="--i:5"><span class="no">06</span><span style="color: #FFD700;">5 ★</span></a>
-    <a class="mm-link" href="#contact" style="--i:6"><span class="no">07</span>Contact</a>
-    <a class="mm-link" href="../insights/" style="--i:7"><span class="no">08</span>Insights</a>
+
+    <a class="mm-link" href="../#method" style="--i:2"><span class="no">03</span>Method</a>
+
+    <a class="mm-link" href="../#voices" style="--i:3"><span class="no">04</span><span style="color: #FFD700;">5 &#9733;</span></a>
+
+    <a class="mm-link" href="../work/" style="--i:4"><span class="no">05</span>Work</a>
+
+    <a class="mm-link" href="./" style="--i:5" aria-current="page"><span class="no">06</span>Showcase</a>
+
+    <a class="mm-link" href="../insights/" style="--i:6"><span class="no">07</span>Insights</a>
+
+    <a class="mm-link" href="#contact" style="--i:7"><span class="no">08</span>Contact</a>
   </nav>
   <div class="mm-foot">
     <a href="mailto:yousef@keyframeglobal.com">yousef@keyframeglobal.com</a>
@@ -346,7 +294,7 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
   </div>
 </div>
 
-<div class="shell" id="top">
+<main class="shell" id="top" role="main">
 
   <!-- HERO -->
   <section class="hero sc-hero" id="hero" style="min-height:auto; justify-content:flex-start; padding:150px 0 30px;">
@@ -354,385 +302,461 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
       <div style="max-width: 980px;">
         <div class="crumbs-line reveal"><a href="../">Home</a> / Showcase</div>
         <div class="eyebrow reveal" style="margin-bottom:22px;">The Concept Lab</div>
-        <h1 class="hero-title reveal-text" style="font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.05;">
-          One reel. Six sequences.<br />Cut it <span class="highlight-pivotal">yourself</span>.
-        </h1>
-        <p class="hero-sub reveal" style="margin-top: 22px; max-width: 720px;">Live client launches and in-house concept studies on a single timeline. Scrub the dock below, drag the wipes in the AI lab, and open any frame full screen.</p>
+        <div class="hero-title-container" id="heroPerspective" style="margin-bottom: 20px;">
+          <div class="hero-title-inner" id="heroCard" style="transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(calc(var(--lift, 0) * 10px)); transition: transform 0.1s ease-out; transform-style: preserve-3d; will-change: transform;">
+            <h1 class="hero-title reveal-text" style="font-size: clamp(2.3rem, 5.4vw, 4.6rem); line-height: 1.06;">
+              Cinematic web, <br/><span class="highlight-pivotal">live</span> and <span class="blk">imagined</span>
+            </h1>
+          </div>
+        </div>
+        <p class="hero-sub reveal" style="margin-top: 22px; max-width: 720px;">AI visualization, product renders, brand systems, mobile concepts, retouching, and campaign design, all in one curated collection. Click any card to expand.</p>
         <div class="lab-hero-meta reveal">
-          <span><b>34</b> stills</span>
-          <span><b>06</b> sequences</span>
-          <span><b>03</b> live builds</span>
+          <span><b>50</b> stills</span>
+          <span><b>07</b> categories</span>
           <span><b>04</b> sketch-to-render wipes</span>
         </div>
-        <div class="lab-hero-hint reveal"><span class="pulse"></span>Use the timeline dock to jump between sequences</div>
+        <div class="lab-hero-hint reveal"><span class="pulse"></span>Scroll to explore each category</div>
       </div>
     </div>
   </section>
 
-  <!-- SEQ 01 / WEB -->
+  <!-- FILTERS -->
+  <section class="sec" style="padding: 0 0 20px;">
+    <div class="wrap">
+      <div class="sc-filters">
+        <a href="#top" class="active">All</a>
+        <a href="#web">Web &amp; Mobile</a>
+        <a href="#ai">AI Visualization</a>
+        <a href="#brand">Brand &amp; Identity</a>
+        <a href="#video">Film &amp; Post</a>
+        <a href="#marketing">Campaigns</a>
+        <a href="#retouch">Retouching</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SEQ 01 / WEB & MOBILE ===================== -->
   <section class="sec lab-sec" id="web">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow reveal">SEQ 01 &middot; 00:00:10:00 / Web Experiences</div>
+          <div class="eyebrow reveal">SEQ 01 &middot; Web &amp; Mobile</div>
           <h2 class="split-h">Cinematic <span class="it">web</span>, live and imagined</h2>
-          <p class="aside reveal">Three client launches presented as film frames, then six concept directions from the lab.</p>
+          <p class="aside reveal">Client launches and concept directions built for cinematic impact.</p>
         </div>
       </div>
+      <div class="sc-grid">
 
-      <div class="lab-cinema">
-        <figure class="lab-frame lab-feature reveal" data-lb data-lb-src="../img/showcase/latelier_mockup_presentation.jpg" data-lb-title="L'Atelier Elena" data-lb-note="Quiet-luxury architecture studio, live build">
-          <div class="lab-media lab-par">
-            <picture>
-              <source srcset="../img/showcase/latelier_mockup_presentation.avif" type="image/avif" />
-              <img src="../img/showcase/latelier_mockup_presentation.jpg" alt="L'Atelier Elena website presented on laptop and phone" loading="eager" decoding="async" />
-            </picture>
-            <div class="lab-shade"></div>
-            <span class="lab-chip tag live">Live Client</span>
-            <span class="lab-chip tc">TC 00:00:12:08</span>
-          </div>
-            <div class="lab-info">
-              <div>
-                <h3>L'Atelier Elena</h3>
-                <p>Quiet luxury for an architecture studio: editorial serif, generous negative space, a 93 desktop performance score.</p>
-              </div>
-              <span class="lab-open">Open frame
-                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-              </span>
-            </div>
-        </figure>
+        <div class="sc-card wide reveal" data-lb data-lb-src="../img/showcase/latelier_new_mockup_1785176570961.webp" data-lb-title="Luxury Architecture Concept" data-lb-note="Quiet-luxury architecture studio concept">
+          <img class="sc-img" src="../img/showcase/latelier_new_mockup_1785176570961.webp" alt="Architecture website on laptop and phone" loading="lazy" decoding="async" />
+          <span class="sc-chip">Web Concept</span>
+          <div class="sc-info"><h3>Luxury Architecture Concept</h3><p>Editorial serif, generous negative space, quiet luxury.</p><span class="sc-tag">Website</span></div>
+        </div>
 
-        <figure class="lab-frame lab-feature reveal" data-lb data-lb-src="../img/showcase/safarin_mockup_presentation.jpg" data-lb-title="Safarin Steel" data-lb-note="Bilingual industrial platform, live build">
-          <div class="lab-media lab-par">
-            <picture>
-              <source srcset="../img/showcase/safarin_mockup_presentation.avif" type="image/avif" />
-              <img src="../img/showcase/safarin_mockup_presentation.jpg" alt="Safarin Steel website presented on laptop and phone" loading="lazy" decoding="async" />
-            </picture>
-            <div class="lab-shade"></div>
-            <span class="lab-chip tag live">Live Client</span>
-            <span class="lab-chip tc">TC 00:00:24:16</span>
-          </div>
-            <div class="lab-info">
-              <div>
-                <h3>Safarin Steel</h3>
-                <p>A bilingual industrial platform for Jordan's premium steel supplier: dark-luxe, high contrast, built to command.</p>
-              </div>
-              <span class="lab-open">Open frame
-                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-              </span>
-            </div>
-        </figure>
+        <div class="sc-card wide reveal" data-lb data-lb-src="../img/showcase/safarin_new_mockup_1785176588032.webp" data-lb-title="Industrial B2B Platform" data-lb-note="Bilingual industrial platform concept">
+          <img class="sc-img" src="../img/showcase/safarin_new_mockup_1785176588032.webp" alt="Industrial platform on laptop and phone" loading="lazy" decoding="async" />
+          <span class="sc-chip">Web Concept</span>
+          <div class="sc-info"><h3>Industrial B2B Platform</h3><p>Dark-luxe, high contrast, bilingual industrial platform.</p><span class="sc-tag">Website</span></div>
+        </div>
 
-        <figure class="lab-frame lab-feature reveal" data-lb data-lb-src="../img/showcase/drivein_mockup_presentation.jpg" data-lb-title="Smith's Ranch Drive-In" data-lb-note="Retro Americana for a 1956 drive-in, live build">
-          <div class="lab-media lab-par">
-            <picture>
-              <source srcset="../img/showcase/drivein_mockup_presentation.avif" type="image/avif" />
-              <img src="../img/showcase/drivein_mockup_presentation.jpg" alt="Smith's Ranch Drive-In website presented on laptop and phone" loading="lazy" decoding="async" />
-            </picture>
-            <div class="lab-shade"></div>
-            <span class="lab-chip tag live">Live Client</span>
-            <span class="lab-chip tc">TC 00:00:37:04</span>
-          </div>
-            <div class="lab-info">
-              <div>
-                <h3>Smith's Ranch Drive-In</h3>
-                <p>Retro Americana for a 1956 California drive-in: vintage type, neon accents, seamless showtimes and snack bar.</p>
-              </div>
-              <span class="lab-open">Open frame
-                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-              </span>
-            </div>
-        </figure>
-      </div>
+        <div class="sc-card wide reveal" data-lb data-lb-src="../img/showcase/drivein_new_mockup_1785176596622.webp" data-lb-title="Retro Americana Booking" data-lb-note="Drive-in theater booking concept">
+          <img class="sc-img" src="../img/showcase/drivein_new_mockup_1785176596622.webp" alt="Drive-in website on laptop and phone" loading="lazy" decoding="async" />
+          <span class="sc-chip">Web Concept</span>
+          <div class="sc-info"><h3>Retro Americana Booking</h3><p>Vintage type, neon accents, seamless showtimes.</p><span class="sc-tag">Website</span></div>
+        </div>
 
-      <div class="lab-board pad-drop" style="margin-top: 48px;">
-        <figure class="lab-frame s5 reveal" data-lb data-lb-src="../img/showcase/web2_realestate.jpg" data-lb-title="Dusk Estates" data-lb-note="Cinematic real-estate concept">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/web2_realestate.avif" type="image/avif" /><img src="../img/showcase/web2_realestate.jpg" alt="Cinematic real-estate website concept with a villa at dusk" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:00:49:12</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 04</span><div><h3>Dusk Estates</h3><p>Full-bleed villa at dusk, elegant serif, a thin gold filter bar.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s7 drop reveal" data-lb data-lb-src="../img/showcase/web2_hospitality.jpg" data-lb-title="Maison Noire" data-lb-note="Luxury hospitality booking concept">
-          <div class="lab-media r43">
-            <picture><source srcset="../img/showcase/web2_hospitality.avif" type="image/avif" /><img src="../img/showcase/web2_hospitality.jpg" alt="Luxury hotel website concept with candle-lit hero and frosted booking widget" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:00:58:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 05</span><div><h3>Maison Noire</h3><p>A candle-lit booking experience: frosted glass over deep shadow, gold serif type.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 reveal" data-lb data-lb-src="../img/showcase/web_exp_immersive_1784029262169.jpg" data-lb-title="Immersive Scroll" data-lb-note="Scroll-driven WebGL depth study">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/web_exp_immersive_1784029262169.avif" type="image/avif" /><img src="../img/showcase/web_exp_immersive_1784029262169.jpg" alt="Immersive dark web experience concept with 3D depth" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:01:06:12</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 06</span><div><h3>Immersive Scroll</h3><p>Depth, motion, and cinematic pacing for a perception-led brand.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 drop reveal" data-lb data-lb-src="../img/showcase/web_exp_luxury_1784029271589.jpg" data-lb-title="Editorial Luxe" data-lb-note="Magazine-grade layout study">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/web_exp_luxury_1784029271589.avif" type="image/avif" /><img src="../img/showcase/web_exp_luxury_1784029271589.jpg" alt="Luxury editorial website concept" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:01:14:20</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 07</span><div><h3>Editorial Luxe</h3><p>Negative space and serif restraint, magazine-grade.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 reveal" data-lb data-lb-src="../img/showcase/web_exp_dashboard_1784030073625.jpg" data-lb-title="SaaS Command" data-lb-note="Premium product interface concept">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/web_exp_dashboard_1784030073625.avif" type="image/avif" /><img src="../img/showcase/web_exp_dashboard_1784030073625.jpg" alt="Premium SaaS dashboard interface concept" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:01:22:08</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 08</span><div><h3>SaaS Command</h3><p>Glassmorphism panels, teal telemetry on charcoal.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s12 reveal" data-lb data-lb-src="../img/showcase/web2_portfolio.jpg" data-lb-title="The Motion Reel" data-lb-note="Studio portfolio concept built like a title sequence">
-          <div class="lab-media r167">
-            <picture><source srcset="../img/showcase/web2_portfolio.avif" type="image/avif" /><img src="../img/showcase/web2_portfolio.jpg" alt="Dark motion-design studio portfolio website concept" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:01:24:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 09</span><div><h3>The Motion Reel</h3><p>A portfolio built like a title sequence: oversized italic serif over a grid of living thumbnails.</p></div></figcaption>
-        </figure>
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/web2_realestate.webp" data-lb-title="Dusk Estates" data-lb-note="Luxury real estate website concept">
+          <img class="sc-img" src="../img/showcase/web2_realestate.webp" alt="Real estate website concept" loading="lazy" decoding="async" />
+          <span class="sc-chip">Concept</span>
+          <div class="sc-info"><h3>Dusk Estates</h3><p>Full-bleed villa, elegant serif, thin gold filter bar.</p><span class="sc-tag">Website</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/web_exp_immersive_1784029262169.webp" data-lb-title="Immersive Scroll" data-lb-note="Scroll-driven WebGL depth study">
+          <img class="sc-img" src="../img/showcase/web_exp_immersive_1784029262169.webp" alt="Immersive web experience" loading="lazy" decoding="async" />
+          <span class="sc-chip">Concept</span>
+          <div class="sc-info"><h3>Immersive Scroll</h3><p>Depth, motion, and cinematic pacing.</p><span class="sc-tag">Web Experience</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/web_exp_luxury_1784029271589.webp" data-lb-title="Editorial Luxe" data-lb-note="Magazine-grade layout study">
+          <img class="sc-img" src="../img/showcase/web_exp_luxury_1784029271589.webp" alt="Luxury editorial website" loading="lazy" decoding="async" />
+          <span class="sc-chip">Concept</span>
+          <div class="sc-info"><h3>Editorial Luxe</h3><p>Negative space and serif restraint, magazine-grade.</p><span class="sc-tag">Website</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/web2_portfolio.webp" data-lb-title="The Motion Reel" data-lb-note="Studio portfolio concept">
+          <img class="sc-img" src="../img/showcase/web2_portfolio.webp" alt="Motion design portfolio" loading="lazy" decoding="async" />
+          <span class="sc-chip">Concept</span>
+          <div class="sc-info"><h3>The Motion Reel</h3><p>Portfolio as title sequence, living thumbnails.</p><span class="sc-tag">Website</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/mobile_app_concierge_1784029296414.webp" data-lb-title="Aura Wealth" data-lb-note="Private-wealth dashboard, bilingual, dark-mode">
+          <img class="sc-img" src="../img/showcase/mobile_app_concierge_1784029296414.webp" alt="Private wealth app dashboard" loading="lazy" decoding="async" />
+          <span class="sc-chip">Mobile</span>
+          <div class="sc-info"><h3>Aura Wealth</h3><p>Private-wealth dashboard, bilingual, dark-mode native.</p><span class="sc-tag">App Concept</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/mobile_app_companion_1784030084775.webp" data-lb-title="Smart Companion" data-lb-note="Smart home integration app concept">
+          <img class="sc-img" src="../img/showcase/mobile_app_companion_1784030084775.webp" alt="Smart home companion app" loading="lazy" decoding="async" />
+          <span class="sc-chip">Mobile</span>
+          <div class="sc-info"><h3>Smart Companion</h3><p>Biometric entry and real-time smart home controls.</p><span class="sc-tag">App Concept</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/mobile2_fitness.webp" data-lb-title="Pulse" data-lb-note="Dark luxury fitness app concept">
+          <img class="sc-img" src="../img/showcase/mobile2_fitness.webp" alt="Fitness app with teal activity rings" loading="lazy" decoding="async" />
+          <span class="sc-chip">Mobile</span>
+          <div class="sc-info"><h3>Pulse</h3><p>Teal activity rings on charcoal glass, gold accents.</p><span class="sc-tag">App Concept</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/concept_mobile_app.webp" data-lb-title="Mobile Concept" data-lb-note="Mobile app concept exploration">
+          <img class="sc-img" src="../img/showcase/concept_mobile_app.webp" alt="Mobile app concept" loading="lazy" decoding="async" />
+          <span class="sc-chip">Mobile</span>
+          <div class="sc-info"><h3>Mobile Concept</h3><p>Early-stage app direction and interface exploration.</p><span class="sc-tag">App Concept</span></div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SEQ 02 / AI -->
+  <!-- ===================== SEQ 02 / AI VISUALIZATION ===================== -->
   <section class="sec lab-sec" id="ai">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow reveal">SEQ 02 &middot; 00:01:24:12 / AI and Visualization</div>
+          <div class="eyebrow reveal">SEQ 02 &middot; AI &amp; Visualization</div>
           <h2 class="split-h">Drag the blade: sketch to <span class="it">photoreal</span></h2>
-          <p class="aside reveal">Four products, one pipeline. Every render starts as an annotated pencil study; pull the gold blade to see the translation.</p>
+          <p class="aside reveal">Every render starts as an annotated pencil study. Pull the gold blade to see the translation.</p>
         </div>
       </div>
-      <div class="lab-pairs">
-        <div class="lab-frame reveal">
-          <div class="lab-compare" role="slider" tabindex="0" aria-label="Chronos Tourbillon, drag to compare sketch and render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62">
-            <img class="lab-base" src="../img/showcase/ai_vis_sketch_1784029495656.jpg" alt="Hand-drawn annotated sketch of a skeleton tourbillon watch" loading="lazy" decoding="async" />
-            <img class="lab-after" src="../img/showcase/ai_vis_3d_product_1784029418689.jpg" alt="Photoreal 3D render of the same tourbillon watch" loading="lazy" decoding="async" />
+      <div class="sc-grid" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));">
+
+        <!-- Slider: Watch -->
+        <div class="sc-compare-card reveal">
+          <div class="sc-compare-wrap" role="slider" tabindex="0" aria-label="Chronos Tourbillon, drag to compare sketch and render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="lab-base" src="../img/showcase/ai_vis_sketch_1784029495656.webp" alt="Watch sketch" loading="lazy" decoding="async" />
+            <img class="lab-after" src="../img/showcase/ai_vis_3d_product_1784029418689.webp" alt="Watch render" loading="lazy" decoding="async" />
             <span class="lab-blade"></span>
             <span class="lab-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg></span>
             <span class="cl a">Sketch</span><span class="cl b">Render</span>
-            <button class="lab-expand" data-lb data-lb-src="../img/showcase/ai_vis_3d_product_1784029418689.jpg" data-lb-title="Chronos Tourbillon" data-lb-note="Photoreal render from the annotated sketch" aria-label="Open Chronos Tourbillon render full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </div>
-          <figcaption class="lab-cap"><span class="no">FR 10</span><div><h3>Chronos Tourbillon</h3><p>Production-ready horology renders before a physical prototype exists.</p></div></figcaption>
+          <div class="sc-info"><h3>Chronos Tourbillon</h3><p>Production-ready horology render from an annotated pencil study.</p><span class="sc-tag">3D Product</span></div>
         </div>
-        <div class="lab-frame reveal">
-          <div class="lab-compare" role="slider" tabindex="0" aria-label="Amber Facet perfume, drag to compare sketch and render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62">
-            <img class="lab-base" src="../img/showcase/ai2_perfume_sketch.jpg" alt="Designer's concept sketch of a faceted perfume bottle on black paper" loading="lazy" decoding="async" />
-            <img class="lab-after" src="../img/showcase/ai2_perfume_render.jpg" alt="Photoreal render of a faceted glass perfume bottle with gold cap" loading="lazy" decoding="async" />
+
+        <!-- Slider: Perfume -->
+        <div class="sc-compare-card reveal">
+          <div class="sc-compare-wrap" role="slider" tabindex="0" aria-label="Amber Facet perfume, drag to compare sketch and render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="lab-base" src="../img/showcase/ai2_perfume_sketch.webp" alt="Perfume sketch" loading="lazy" decoding="async" />
+            <img class="lab-after" src="../img/showcase/ai2_perfume_render.webp" alt="Perfume render" loading="lazy" decoding="async" />
             <span class="lab-blade"></span>
             <span class="lab-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg></span>
             <span class="cl a">Sketch</span><span class="cl b">Render</span>
-            <button class="lab-expand" data-lb data-lb-src="../img/showcase/ai2_perfume_render.jpg" data-lb-title="Amber Facet" data-lb-note="Faceted glass, brushed gold, deep amber" aria-label="Open Amber Facet render full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </div>
-          <figcaption class="lab-cap"><span class="no">FR 11</span><div><h3>Amber Facet</h3><p>Faceted glass and brushed gold, sketched, then lit like an editorial.</p></div></figcaption>
+          <div class="sc-info"><h3>Amber Facet</h3><p>Faceted glass, brushed-gold cap, caustic light play.</p><span class="sc-tag">3D Product</span></div>
         </div>
-        <div class="lab-frame reveal">
-          <div class="lab-compare" role="slider" tabindex="0" aria-label="Flagship Runner sneaker, drag to compare sketch and render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62">
-            <img class="lab-base" src="../img/showcase/ai2_sneaker_sketch.jpg" alt="Concept sketch of a futuristic performance sneaker with annotations" loading="lazy" decoding="async" />
-            <img class="lab-after" src="../img/showcase/ai2_sneaker_render.jpg" alt="Photoreal render of a matte black sneaker with teal accents and translucent gold sole" loading="lazy" decoding="async" />
+
+        <!-- Slider: Sneaker -->
+        <div class="sc-compare-card reveal">
+          <div class="sc-compare-wrap" role="slider" tabindex="0" aria-label="Flagship Runner, drag to compare sketch and render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="lab-base" src="../img/showcase/ai2_sneaker_sketch.webp" alt="Sneaker sketch" loading="lazy" decoding="async" />
+            <img class="lab-after" src="../img/showcase/ai2_sneaker_render.webp" alt="Sneaker render" loading="lazy" decoding="async" />
             <span class="lab-blade"></span>
             <span class="lab-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg></span>
             <span class="cl a">Sketch</span><span class="cl b">Render</span>
-            <button class="lab-expand" data-lb data-lb-src="../img/showcase/ai2_sneaker_render.jpg" data-lb-title="Flagship Runner" data-lb-note="Matte black, teal accents, translucent gold sole" aria-label="Open Flagship Runner render full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </div>
-          <figcaption class="lab-cap"><span class="no">FR 12</span><div><h3>Flagship Runner</h3><p>Studio-lit product photography: matte black, teal, a gold-tinted sole.</p></div></figcaption>
+          <div class="sc-info"><h3>Flagship Runner</h3><p>Matte textures, neon accents, translucent sole.</p><span class="sc-tag">3D Product</span></div>
         </div>
-        <div class="lab-frame reveal">
-          <div class="lab-compare" role="slider" tabindex="0" aria-label="Night Aero hypercar, drag to compare sketch and render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62">
-            <img class="lab-base" src="../img/showcase/ai2_car_sketch.jpg" alt="Concept sketch of a hypercar front detail on black paper" loading="lazy" decoding="async" />
-            <img class="lab-after" src="../img/showcase/ai2_car_render.jpg" alt="Photoreal render of a matte charcoal concept hypercar with teal underglow" loading="lazy" decoding="async" />
-            <span class="lab-blade"></span>
-            <span class="lab-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg></span>
-            <span class="cl a">Sketch</span><span class="cl b">Render</span>
-            <button class="lab-expand" data-lb data-lb-src="../img/showcase/ai2_car_render.jpg" data-lb-title="Night Aero" data-lb-note="Charcoal hypercar, gold pinstripe, teal underglow" aria-label="Open Night Aero render full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 13</span><div><h3>Night Aero</h3><p>A charcoal hypercar detail: gold pinstripe aero, teal underglow.</p></div></figcaption>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SEQ 03 / BRAND -->
+  <!-- ===================== SEQ 03 / BRAND & IDENTITY ===================== -->
   <section class="sec lab-sec" id="brand">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow reveal">SEQ 03 &middot; 00:02:08:04 / Brand and Identity</div>
+          <div class="eyebrow reveal">SEQ 03 &middot; Brand &amp; Identity</div>
           <h2 class="split-h">Identity you can <span class="it">hold</span></h2>
           <p class="aside reveal">One geometric language carried from foil-stamped stationery to architectural signage.</p>
         </div>
       </div>
-      <div class="lab-board">
-        <figure class="lab-frame s12 reveal" data-lb data-lb-src="../img/showcase/brand_identity_signage_1784030105586.jpg" data-lb-title="Architectural Signage" data-lb-note="Identity carried into raw concrete">
-          <div class="lab-media r167">
-            <picture><source srcset="../img/showcase/brand_identity_signage_1784030105586.avif" type="image/avif" /><img src="../img/showcase/brand_identity_signage_1784030105586.jpg" alt="Architectural brand signage integrated with a concrete facade" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:02:10:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 14</span><div><h3>Architectural Signage</h3><p>The monogram at building scale, set into raw concrete.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s6 reveal" data-lb data-lb-src="../img/showcase/brand_identity_monolith_1784029340397.jpg" data-lb-title="The Monolith Card" data-lb-note="Gold foil and blind deboss on heavyweight black stock">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/brand_identity_monolith_1784029340397.avif" type="image/avif" /><img src="../img/showcase/brand_identity_monolith_1784029340397.jpg" alt="Gold-foil monogram business card with blind deboss on black stock" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:02:18:12</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 15</span><div><h3>The Monolith Card</h3><p>Gold foil, blind deboss, heavyweight black stock on raw stone.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s6 drop reveal" data-lb data-lb-src="../img/showcase/brand_identity_system_1784029351135.jpg" data-lb-title="The System" data-lb-note="Cards, letterhead, packaging, seals: one language">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/brand_identity_system_1784029351135.avif" type="image/avif" /><img src="../img/showcase/brand_identity_system_1784029351135.jpg" alt="Full stationery identity system flat lay" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:02:26:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 16</span><div><h3>The System</h3><p>Cards, letterhead, packaging, and seals held to one geometry.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s6 reveal" data-lb data-lb-src="../img/showcase/brand2_packaging.jpg" data-lb-title="The Unboxing" data-lb-note="Rigid box, gold-foil monogram, wax-sealed card">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/brand2_packaging.avif" type="image/avif" /><img src="../img/showcase/brand2_packaging.jpg" alt="Luxury unboxing flat lay with gold-foil monogram box and wax-sealed card" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:02:33:16</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 17</span><div><h3>The Unboxing</h3><p>A matte rigid box, tissue with a repeating mark, one wax seal.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s6 drop reveal" data-lb data-lb-src="../img/showcase/brand2_menu.jpg" data-lb-title="Table Collateral" data-lb-note="Fine-dining menu and matchbox set in gold foil">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/brand2_menu.avif" type="image/avif" /><img src="../img/showcase/brand2_menu.jpg" alt="Fine-dining menu and matchbox set in gold foil on black stock" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:02:41:08</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 18</span><div><h3>Table Collateral</h3><p>Menu and matches in gold foil, raking light on paper tooth.</p></div></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+      <div class="sc-grid">
 
-  <!-- SEQ 04 / MOBILE -->
-  <section class="sec lab-sec" id="mobile">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <div class="eyebrow reveal">SEQ 04 &middot; 00:02:47:16 / Mobile Apps</div>
-          <h2 class="split-h">Products with a <span class="it">pulse</span></h2>
-          <p class="aside reveal">Bilingual, RTL-native product design: wealth, fitness, and travel in glass and charcoal.</p>
+        <!-- ===== BRAND & IDENTITY ===== -->
+        <div class="sc-card reveal" data-cat="brand" data-lb data-lb-src="../img/showcase/brand_identity_monolith_1784029340397.webp" data-lb-title="The Monolith Card" data-lb-note="Gold foil and blind deboss on heavyweight stock">
+          <img class="sc-img" src="../img/showcase/brand_identity_monolith_1784029340397.webp" alt="Gold-foil monogram business card" loading="lazy" decoding="async" />
+          <span class="sc-chip">Identity</span>
+          <div class="sc-info"><h3>The Monolith Card</h3><p>Gold foil, blind deboss, heavyweight stock.</p><span class="sc-tag">Print</span></div>
         </div>
-      </div>
-      <div class="lab-board">
-        <figure class="lab-frame s7 reveal" data-lb data-lb-src="../img/showcase/mobile_app_concierge_1784029296414.jpg" data-lb-title="Aura Wealth" data-lb-note="Private-wealth dashboard, bilingual, dark-mode native">
-          <div class="lab-media r43">
-            <picture><source srcset="../img/showcase/mobile_app_concierge_1784029296414.avif" type="image/avif" /><img src="../img/showcase/mobile_app_concierge_1784029296414.jpg" alt="Bilingual private wealth app dashboard with teal charts" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:02:49:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 19</span><div><h3>Aura Wealth</h3><p>A private-wealth dashboard, bilingual and dark-mode native.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s5 drop reveal" data-lb data-lb-src="../img/showcase/mobile_app_companion_1784030084775.jpg" data-lb-title="Hardware Companion" data-lb-note="Biometric entry, real-time portfolio">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/mobile_app_companion_1784030084775.avif" type="image/avif" /><img src="../img/showcase/mobile_app_companion_1784030084775.jpg" alt="Mobile app shown alongside hardware integration" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:02:57:12</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 20</span><div><h3>Hardware Companion</h3><p>Biometric entry and live analytics bridging device and app.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 reveal" data-lb data-lb-src="../img/showcase/mobile_app_ar_1784029308326.jpg" data-lb-title="Arabic-First UI" data-lb-note="RTL designed, never retrofitted">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/mobile_app_ar_1784029308326.avif" type="image/avif" /><img src="../img/showcase/mobile_app_ar_1784029308326.jpg" alt="Arabic-first mobile app interface" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:03:05:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 21</span><div><h3>Arabic-First UI</h3><p>Right-to-left designed from frame one, never retrofitted.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 drop reveal" data-lb data-lb-src="../img/showcase/mobile2_fitness.jpg" data-lb-title="Pulse" data-lb-note="Dark luxury fitness app concept">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/mobile2_fitness.avif" type="image/avif" /><img src="../img/showcase/mobile2_fitness.jpg" alt="Dark luxury fitness app with teal activity rings on two phones" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:03:13:12</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 22</span><div><h3>Pulse</h3><p>Teal activity rings on charcoal glass, gold accents.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 reveal" data-lb data-lb-src="../img/showcase/mobile2_travel.jpg" data-lb-title="Voyage" data-lb-note="Premium travel app concept">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/mobile2_travel.avif" type="image/avif" /><img src="../img/showcase/mobile2_travel.jpg" alt="Premium travel app with gold routes on a dark map and frosted boarding pass" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:03:21:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 23</span><div><h3>Voyage</h3><p>Gold routes on a dark map, a boarding pass in frosted glass.</p></div></figcaption>
-        </figure>
-      </div>
+
+        <div class="sc-card reveal" data-cat="brand" data-lb data-lb-src="../img/showcase/brand_identity_system_1784029351135.webp" data-lb-title="The System" data-lb-note="Full stationery identity system flat lay">
+          <img class="sc-img" src="../img/showcase/brand_identity_system_1784029351135.webp" alt="Full stationery identity system" loading="lazy" decoding="async" />
+          <span class="sc-chip">Identity</span>
+          <div class="sc-info"><h3>The System</h3><p>Cards, letterhead, packaging, seals, one geometry.</p><span class="sc-tag">Stationery</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-cat="brand" data-lb data-lb-src="../img/showcase/brand_identity_signage_1784030105586.webp" data-lb-title="Architectural Signage" data-lb-note="Gold-plated lettering on concrete facade">
+          <img class="sc-img" src="../img/showcase/brand_identity_signage_1784030105586.webp" alt="Luxury brand signage on concrete" loading="lazy" decoding="async" />
+          <span class="sc-chip">Identity</span>
+          <div class="sc-info"><h3>Architectural Signage</h3><p>Gold-plated letters casting sharp shadows on concrete.</p><span class="sc-tag">Environmental</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-cat="brand" data-lb data-lb-src="../img/showcase/brand2_packaging.webp" data-lb-title="The Unboxing" data-lb-note="Rigid box, gold-foil monogram, wax-sealed card">
+          <img class="sc-img" src="../img/showcase/brand2_packaging.webp" alt="Luxury unboxing flat lay" loading="lazy" decoding="async" />
+          <span class="sc-chip">Packaging</span>
+          <div class="sc-info"><h3>The Unboxing</h3><p>Matte rigid box, tissue, one wax seal.</p><span class="sc-tag">Packaging</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-cat="brand" data-lb data-lb-src="../img/showcase/brand2_menu.webp" data-lb-title="Table Collateral" data-lb-note="Fine-dining menu and matchbox on marble">
+          <img class="sc-img" src="../img/showcase/brand2_menu.webp" alt="Fine dining menu on marble table" loading="lazy" decoding="async" />
+          <span class="sc-chip">Collateral</span>
+          <div class="sc-info"><h3>Table Collateral</h3><p>Ivory cardstock, gold foil type, Michelin-star dining.</p><span class="sc-tag">Restaurant</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-cat="brand" data-lb data-lb-src="../img/showcase/concept_identity.webp" data-lb-title="Concept Identity" data-lb-note="Brand identity concept exploration">
+          <img class="sc-img" src="../img/showcase/concept_identity.webp" alt="Brand identity concept" loading="lazy" decoding="async" />
+          <span class="sc-chip">Concept</span>
+          <div class="sc-info"><h3>Concept Identity</h3><p>Early-stage identity direction and mood exploration.</p><span class="sc-tag">Concept</span></div>
+        </div>
+
+      </div><!-- /sc-grid -->
     </div>
   </section>
 
-  <!-- SEQ 05 / VIDEO -->
+  <!-- ===================== SEQ 04 / FILM & POST ===================== -->
   <section class="sec lab-sec" id="video">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow reveal">SEQ 05 &middot; 00:03:31:08 / Cinematic Video</div>
+          <div class="eyebrow reveal">SEQ 04 &middot; Cinematic Video</div>
           <h2 class="split-h">The <span class="it">grade</span> makes the film</h2>
           <p class="aside reveal">From the haze of the set to the glow of the suite: post-production as art direction.</p>
         </div>
       </div>
-      <div class="lab-board">
-        <figure class="lab-frame s12 reveal" data-lb data-lb-src="../img/showcase/video2_set.jpg" data-lb-title="On Set" data-lb-note="Tungsten fresnels, volumetric gold, an anamorphic flare">
-          <div class="lab-media r167">
-            <picture><source srcset="../img/showcase/video2_set.avif" type="image/avif" /><img src="../img/showcase/video2_set.jpg" alt="Cinema set at night with volumetric tungsten light beams and an ARRI camera on a dolly" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:03:33:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 24</span><div><h3>On Set</h3><p>Heavy atmosphere, tungsten beams, one anamorphic flare.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 reveal" data-lb data-lb-src="../img/showcase/cinematic_video_post_1784029329181.jpg" data-lb-title="The Master Suite" data-lb-note="Chiaroscuro grade in a Kodak Vision3 palette">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/cinematic_video_post_1784029329181.avif" type="image/avif" /><img src="../img/showcase/cinematic_video_post_1784029329181.jpg" alt="Cinematic color grading and post-production master suite" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:03:41:12</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 25</span><div><h3>The Master Suite</h3><p>A chiaroscuro grade in a Kodak Vision3 palette.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 drop reveal" data-lb data-lb-src="../img/showcase/video2_grade.jpg" data-lb-title="The Grade, Three Ways" data-lb-note="One automotive shot, three looks">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/video2_grade.avif" type="image/avif" /><img src="../img/showcase/video2_grade.jpg" alt="Colorist suite with one automotive shot shown in three different grades" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:03:49:00</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 26</span><div><h3>The Grade, Three Ways</h3><p>One shot, three looks, glowing trackballs in the dark.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s4 reveal" data-lb data-lb-src="../img/showcase/video2_vfx.jpg" data-lb-title="Telemetry Pass" data-lb-note="Holographic teal UI over a car silhouette">
-          <div class="lab-media">
-            <picture><source srcset="../img/showcase/video2_vfx.avif" type="image/avif" /><img src="../img/showcase/video2_vfx.jpg" alt="3D motion graphics overlay with holographic teal telemetry on a car silhouette" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:03:57:12</span>
-          </div>
-          <figcaption class="lab-cap"><span class="no">FR 27</span><div><h3>Telemetry Pass</h3><p>Holographic UI and gold data lines, feature-film compositing.</p></div></figcaption>
-        </figure>
+      <div class="sc-grid">
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/cinematic_video_post_1784029329181.webp" data-lb-title="The Grade Suite" data-lb-note="Ultra-modern color grading suite">
+          <img class="sc-img" src="../img/showcase/cinematic_video_post_1784029329181.webp" alt="Color grading suite" loading="lazy" decoding="async" />
+          <span class="sc-chip">Post</span>
+          <div class="sc-info"><h3>The Grade Suite</h3><p>Reference monitor, acoustic paneling, controlled light.</p><span class="sc-tag">Color Grading</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/video2_grade.webp" data-lb-title="Three-Way Grade" data-lb-note="Cinematic color grading interface">
+          <img class="sc-img" src="../img/showcase/video2_grade.webp" alt="Color grading interface" loading="lazy" decoding="async" />
+          <span class="sc-chip">Post</span>
+          <div class="sc-info"><h3>Three-Way Grade</h3><p>Warm, neutral, cool, one commercial, three moods.</p><span class="sc-tag">Color Grading</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/video2_vfx.webp" data-lb-title="VFX Pipeline" data-lb-note="Motion graphics and VFX workstation">
+          <img class="sc-img" src="../img/showcase/video2_vfx.webp" alt="VFX workstation" loading="lazy" decoding="async" />
+          <span class="sc-chip">VFX</span>
+          <div class="sc-info"><h3>VFX Pipeline</h3><p>3D wireframe, holographic telemetry, cutting-edge post.</p><span class="sc-tag">Visual Effects</span></div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SEQ 06 / MARKETING -->
+  <!-- ===================== SEQ 05 / CAMPAIGNS ===================== -->
   <section class="sec lab-sec" id="marketing">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow reveal">SEQ 06 &middot; 00:04:12:20 / Digital Marketing</div>
+          <div class="eyebrow reveal">SEQ 05 &middot; Digital Marketing</div>
           <h2 class="split-h">Campaigns that <span class="it">take over</span></h2>
           <p class="aside reveal">Social, email, and out-of-home treated as one connected story.</p>
         </div>
       </div>
-      <div class="lab-board">
-        <figure class="lab-frame s12 reveal" data-lb data-lb-src="../img/showcase/market2_billboard.jpg" data-lb-title="The Urban Takeover" data-lb-note="DOOH campaign on a rain-slicked street">
-          <div class="lab-media r167">
-            <picture><source srcset="../img/showcase/market2_billboard.avif" type="image/avif" /><img src="../img/showcase/market2_billboard.jpg" alt="Giant digital billboard glowing over a rain-slicked city street at night" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:04:14:00</span>
+      <div class="sc-grid">
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/market2_billboard.webp" data-lb-title="Urban Takeover" data-lb-note="Giant digital billboard on glass skyscraper">
+          <img class="sc-img" src="../img/showcase/market2_billboard.webp" alt="Digital billboard on skyscraper" loading="lazy" decoding="async" />
+          <span class="sc-chip">Campaign</span>
+          <div class="sc-info"><h3>Urban Takeover</h3><p>Giant digital billboard, glass skyscraper, high-impact.</p><span class="sc-tag">Out of Home</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/digital_marketing_omni_1784029398755.webp" data-lb-title="Omni-Channel" data-lb-note="Multi-device campaign analytics">
+          <img class="sc-img" src="../img/showcase/digital_marketing_omni_1784029398755.webp" alt="Omni-channel campaign" loading="lazy" decoding="async" />
+          <span class="sc-chip">Campaign</span>
+          <div class="sc-info"><h3>Omni-Channel</h3><p>Tablet, phone, watch, one cohesive campaign.</p><span class="sc-tag">Digital</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/digital_marketing_editorial_1784029408900.webp" data-lb-title="Editorial Email" data-lb-note="High-fashion email newsletter design">
+          <img class="sc-img" src="../img/showcase/digital_marketing_editorial_1784029408900.webp" alt="Fashion email newsletter" loading="lazy" decoding="async" />
+          <span class="sc-chip">Campaign</span>
+          <div class="sc-info"><h3>Editorial Email</h3><p>Digital magazine spread as email, gold CTAs.</p><span class="sc-tag">Email</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/concept_marketing.webp" data-lb-title="Campaign Concept" data-lb-note="Marketing campaign concept exploration">
+          <img class="sc-img" src="../img/showcase/concept_marketing.webp" alt="Marketing campaign concept" loading="lazy" decoding="async" />
+          <span class="sc-chip">Concept</span>
+          <div class="sc-info"><h3>Campaign Concept</h3><p>Multi-platform campaign direction and visual strategy.</p><span class="sc-tag">Strategy</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/creator_poster_1785176149657.webp" data-lb-title="Creator Poster" data-lb-note="Fashion editorial poster with bold typography">
+          <img class="sc-img" src="../img/showcase/creator_poster_1785176149657.webp" alt="Creator fashion editorial poster" loading="lazy" decoding="async" />
+          <span class="sc-chip">Editorial</span>
+          <div class="sc-info"><h3>Creator Poster</h3><p>Fashion editorial, bold typography, powerful pose.</p><span class="sc-tag">Print</span></div>
+        </div>
+
+        <div class="sc-card reveal" data-lb data-lb-src="../img/showcase/gym_social_1785176166243.webp" data-lb-title="Gym Social" data-lb-note="Dynamic social media ad for luxury activewear">
+          <img class="sc-img" src="../img/showcase/gym_social_1785176166243.webp" alt="Gym social media ad" loading="lazy" decoding="async" />
+          <span class="sc-chip">Social</span>
+          <div class="sc-info"><h3>Gym Social</h3><p>Dynamic social ad for luxury activewear.</p><span class="sc-tag">Social Media</span></div>
+        </div>
+
+        <div class="sc-card wide reveal" data-lb data-lb-src="../img/showcase/mockup_1_1785176182080.webp" data-lb-title="Mockup Presentation 1" data-lb-note="Premium device mockup presentation">
+          <img class="sc-img" src="../img/showcase/mockup_1_1785176182080.webp" alt="Premium device mockup" loading="lazy" decoding="async" />
+          <span class="sc-chip">Mockup</span>
+          <div class="sc-info"><h3>Mockup Presentation</h3><p>Ultra-premium device mockup, dark studio lighting.</p><span class="sc-tag">Presentation</span></div>
+        </div>
+
+        <div class="sc-card wide reveal" data-lb data-lb-src="../img/showcase/mockup_2_1785176192588.webp" data-lb-title="Mockup Presentation 2" data-lb-note="Premium device mockup presentation">
+          <img class="sc-img" src="../img/showcase/mockup_2_1785176192588.webp" alt="Premium device mockup" loading="lazy" decoding="async" />
+          <span class="sc-chip">Mockup</span>
+          <div class="sc-info"><h3>Mockup Presentation</h3><p>Sleek laptop and phone on cinematic dark surface.</p><span class="sc-tag">Presentation</span></div>
+        </div>
+
+        <div class="sc-card wide reveal" data-lb data-lb-src="../img/showcase/mockup_3_1785176201573.webp" data-lb-title="Mockup Presentation 3" data-lb-note="Premium device mockup presentation">
+          <img class="sc-img" src="../img/showcase/mockup_3_1785176201573.webp" alt="Premium device mockup" loading="lazy" decoding="async" />
+          <span class="sc-chip">Mockup</span>
+          <div class="sc-info"><h3>Mockup Presentation</h3><p>Dark desk, volumetric light, premium staging.</p><span class="sc-tag">Presentation</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SEQ 06 / RETOUCHING ===================== -->
+  <section class="sec lab-sec" id="retouch">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow reveal">SEQ 06 &middot; Retouching</div>
+          <h2 class="split-h">All done by <span class="it">hand</span></h2>
+          <p class="aside reveal">Every pixel edited manually in Photoshop, no batch filters, no AI upscaling.</p>
+        </div>
+      </div>
+      <style>
+        .sc-retouch-card { cursor: pointer; overflow: visible !important; border: none !important; background: transparent !important; box-shadow: none !important; border-radius: 0 !important; }
+        .sc-retouch-card::before, .sc-retouch-card::after { display: none !important; }
+        .sc-retouch-card .sc-info { margin-top: 18px; padding: 0 !important; }
+        
+        .stack-wrap { position: relative; z-index: 2; width: 100%; }
+        .img-before-wrap {
+          position: relative; z-index: 3; border-radius: 16px;
+          animation: electric-glow 2s infinite alternate ease-in-out, float-vibrate-smooth 4s infinite ease-in-out;
+        }
+        .img-before { width: 100%; height: auto; border-radius: 16px; display: block; }
+        
+        @keyframes electric-glow {
+          0% { box-shadow: 0 0 6px rgba(235, 181, 78, 0.4), 0 0 15px rgba(235, 181, 78, 0.1); }
+          100% { box-shadow: 0 0 16px rgba(235, 181, 78, 0.8), 0 0 35px rgba(235, 181, 78, 0.3); }
+        }
+        @keyframes float-vibrate-smooth {
+          0% { transform: translateY(0px) rotate(0deg); }
+          25% { transform: translateY(-1.5px) rotate(0.3deg); }
+          50% { transform: translateY(1px) rotate(-0.1deg); }
+          75% { transform: translateY(-0.5px) rotate(0.2deg); }
+          100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .peaking-wrap {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          z-index: 1; transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .peaking-wrap img {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+          border-radius: 16px; opacity: 0.6; filter: blur(1.5px) brightness(0.7);
+        }
+        .peaking-wrap img:nth-child(1) { transform: translate(14px, 14px) rotate(4deg) scale(0.95); }
+        .peaking-wrap img:nth-child(2) { transform: translate(24px, 24px) rotate(8deg) scale(0.9); opacity: 0.4; filter: blur(2px) brightness(0.6); }
+        .peaking-wrap img:nth-child(3) { transform: translate(34px, 34px) rotate(12deg) scale(0.85); opacity: 0.2; filter: blur(2.5px) brightness(0.5); }
+        
+        .sc-retouch-card:hover .peaking-wrap img:nth-child(1) { transform: translate(20px, 20px) rotate(6deg) scale(0.95); opacity: 0.9; filter: blur(0px) brightness(0.9); }
+        
+        .sc-retouch-card.is-expanded .peaking-wrap { opacity: 0; transform: translateY(20px); pointer-events: none; }
+        
+        .after-wrap-below {
+          display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1), margin-top 0.6s; margin-top: 0;
+        }
+        .sc-retouch-card.is-expanded .after-wrap-below { grid-template-rows: 1fr; margin-top: 16px; }
+        .after-wrap-inner { overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+        .after-wrap-inner img {
+          width: 100%; height: auto; border-radius: 16px; transform: translateY(-20px); opacity: 0;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s; border: 1px solid var(--line);
+        }
+        .sc-retouch-card.is-expanded .after-wrap-inner img { transform: translateY(0); opacity: 1; }
+        .sc-retouch-card.is-expanded .after-wrap-inner img:nth-child(1) { transition-delay: 0.1s; }
+        .sc-retouch-card.is-expanded .after-wrap-inner img:nth-child(2) { transition-delay: 0.2s; }
+        .sc-retouch-card.is-expanded .after-wrap-inner img:nth-child(3) { transition-delay: 0.3s; }
+      </style>
+      <div class="sc-grid">
+
+        <div class="sc-card sc-retouch-card reveal" onclick="this.classList.toggle('is-expanded')">
+          <div class="stack-wrap">
+            <div class="peaking-wrap">
+              <img src="../img/showcase/Premium_coffee_bottle_labeled_Turbo_202607272218 (1).webp" alt="Retouched coffee bottle peaking" loading="lazy" decoding="async" />
+            </div>
+            <div class="img-before-wrap">
+              <img class="img-before" src="../img/showcase/Premium_coffee_bottle_labeled_Turbo_202607272218.webp" alt="Original coffee bottle" loading="lazy" decoding="async" onclick="event.stopPropagation(); this.closest(".sc-retouch-card").classList.toggle("is-expanded")" />
+            </div>
+            <span class="sc-chip">Before</span>
           </div>
-          <figcaption class="lab-cap"><span class="no">FR 28</span><div><h3>The Urban Takeover</h3><p>DOOH at night, the campaign reflected on wet asphalt.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s6 reveal" data-lb data-lb-src="../img/showcase/digital_marketing_omni_1784029398755.jpg" data-lb-title="Omni-Channel Grid" data-lb-note="Social, DOOH, and analytics as one digital magazine">
-          <div class="lab-media r43">
-            <picture><source srcset="../img/showcase/digital_marketing_omni_1784029398755.avif" type="image/avif" /><img src="../img/showcase/digital_marketing_omni_1784029398755.jpg" alt="Omni-channel campaign analytics across tablet, phone, and watch" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:04:22:12</span>
+          <div class="sc-info"><h3>Coffee Bottle, Original</h3><p>Unedited studio capture, pre-retouch. Click to reveal edited version below.</p><span class="sc-tag">Click to reveal</span></div>
+          <div class="after-wrap-below">
+            <div class="after-wrap-inner">
+              <img src="../img/showcase/Premium_coffee_bottle_labeled_Turbo_202607272218 (1).webp" alt="Retouched coffee bottle" loading="lazy" decoding="async" data-lb data-lb-src="../img/showcase/Premium_coffee_bottle_labeled_Turbo_202607272218 (1).webp" data-lb-title="Coffee Bottle, Retouched" data-lb-group="retouch-1" onclick="event.stopPropagation(); if(window.openLightbox) window.openLightbox(this);" />
+            </div>
           </div>
-          <figcaption class="lab-cap"><span class="no">FR 29</span><div><h3>Omni-Channel Grid</h3><p>A campaign system that reads like a digital magazine.</p></div></figcaption>
-        </figure>
-        <figure class="lab-frame s6 reveal" data-lb data-lb-src="../img/showcase/digital_marketing_editorial_1784029408900.jpg" data-lb-title="Editorial Newsletter" data-lb-note="Email designed like a magazine spread">
-          <div class="lab-media r43">
-            <picture><source srcset="../img/showcase/digital_marketing_editorial_1784029408900.avif" type="image/avif" /><img src="../img/showcase/digital_marketing_editorial_1784029408900.jpg" alt="Editorial email newsletter design concept" loading="lazy" decoding="async" /></picture>
-            <span class="lab-chip tag">Concept</span><span class="lab-chip tc">TC 00:04:30:00</span>
+        </div>
+
+        <div class="sc-card sc-retouch-card reveal" onclick="this.classList.toggle('is-expanded')">
+          <div class="stack-wrap">
+            <div class="peaking-wrap">
+              <img src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272229.webp" alt="V1 peaking" loading="lazy" decoding="async" />
+              <img src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272242.webp" alt="V2 peaking" loading="lazy" decoding="async" />
+              <img src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272244.webp" alt="V3 peaking" loading="lazy" decoding="async" />
+            </div>
+            <div class="img-before-wrap">
+              <img class="img-before" src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272228.webp" alt="Original cosmetic spray bottle" loading="lazy" decoding="async" onclick="event.stopPropagation(); this.closest(".sc-retouch-card").classList.toggle("is-expanded")" />
+            </div>
+            <span class="sc-chip">Before</span>
           </div>
-          <figcaption class="lab-cap"><span class="no">FR 30</span><div><h3>Editorial Newsletter</h3><p>Email as editorial: gold calls-to-action on dark slate.</p></div></figcaption>
-        </figure>
+          <div class="sc-info"><h3>Cosmetic Spray, Original</h3><p>Unedited studio capture, pre-retouch. Click to reveal edited versions below.</p><span class="sc-tag">Click to reveal</span></div>
+          <div class="after-wrap-below">
+            <div class="after-wrap-inner">
+              <img src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272229.webp" alt="V1 edit" loading="lazy" decoding="async" data-lb data-lb-src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272229.webp" data-lb-title="Cosmetic Spray, V1" data-lb-group="retouch-2" onclick="event.stopPropagation(); if(window.openLightbox) window.openLightbox(this);" />
+              <img src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272242.webp" alt="V2 edit" loading="lazy" decoding="async" data-lb data-lb-src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272242.webp" data-lb-title="Cosmetic Spray, V2" data-lb-group="retouch-2" onclick="event.stopPropagation(); if(window.openLightbox) window.openLightbox(this);" />
+              <img src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272244.webp" alt="V3 edit" loading="lazy" decoding="async" data-lb data-lb-src="../img/showcase/Cosmetic_spray_bottle_teal_green_202607272244.webp" data-lb-title="Cosmetic Spray, V3" data-lb-group="retouch-2" onclick="event.stopPropagation(); if(window.openLightbox) window.openLightbox(this);" />
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-card sc-retouch-card reveal" onclick="this.classList.toggle('is-expanded')">
+          <div class="stack-wrap">
+            <div class="peaking-wrap">
+              <img src="../img/showcase/ai2_perfume_render_2.webp" alt="Alternative light peaking" loading="lazy" decoding="async" />
+            </div>
+            <div class="img-before-wrap">
+              <img class="img-before" src="../img/showcase/ai2_perfume_render.webp" alt="Amber Facet, original render" loading="lazy" decoding="async" onclick="event.stopPropagation(); this.closest('.sc-retouch-card').classList.toggle('is-expanded')" />
+            </div>
+            <span class="sc-chip">Before</span>
+          </div>
+          <div class="sc-info"><h3>Amber Facet, Original</h3><p>Original 3D render capture. Click to reveal alternative lighting pass below.</p><span class="sc-tag">Click to reveal</span></div>
+          <div class="after-wrap-below">
+            <div class="after-wrap-inner">
+              <img src="../img/showcase/ai2_perfume_render_2.webp" alt="Amber Facet, alternative light" loading="lazy" decoding="async" data-lb data-lb-src="../img/showcase/ai2_perfume_render_2.webp" data-lb-title="Amber Facet, Alt Light" data-lb-group="retouch-3" onclick="event.stopPropagation(); if(window.openLightbox) window.openLightbox(this);" />
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <section class="cta" id="contact">
     <div class="wrap">
-      <div class="eyebrow reveal" style="justify-content:center;display:flex;margin-bottom:28px;">00:04:59 / Next frame</div>
+      <div class="eyebrow reveal" style="justify-content:center;display:flex;margin-bottom:28px;">Next frame</div>
       <h2 class="reveal-text">This is the <span class="it">floor</span>, not the ceiling.</h2>
       <p class="sub reveal">Tell us where the brand is headed. We will show you what the next frame looks like.</p>
       <div class="row reveal">
@@ -751,12 +775,8 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
 <nav class="lab-dock" id="labDock" aria-label="Showcase timeline">
   <div class="lab-track" aria-hidden="true"><span class="fill" id="labFill"></span><span class="head" id="labHead"></span></div>
   <div class="lab-marks">
-    <button class="lab-mark" data-seq="web"><span class="d"></span><span class="lbl-f">01 Web</span><span class="lbl-s">Web</span></button>
-    <button class="lab-mark" data-seq="ai"><span class="d"></span><span class="lbl-f">02 AI Lab</span><span class="lbl-s">AI</span></button>
-    <button class="lab-mark" data-seq="brand"><span class="d"></span><span class="lbl-f">03 Brand</span><span class="lbl-s">Brand</span></button>
-    <button class="lab-mark" data-seq="mobile"><span class="d"></span><span class="lbl-f">04 Mobile</span><span class="lbl-s">Apps</span></button>
-    <button class="lab-mark" data-seq="video"><span class="d"></span><span class="lbl-f">05 Film</span><span class="lbl-s">Film</span></button>
-    <button class="lab-mark" data-seq="marketing"><span class="d"></span><span class="lbl-f">06 Campaigns</span><span class="lbl-s">Ads</span></button>
+    <button class="lab-mark" data-seq="showcase"><span class="d"></span><span class="lbl-f">All Work</span><span class="lbl-s">All</span></button>
+    <button class="lab-mark" data-seq="contact"><span class="d"></span><span class="lbl-f">Contact</span><span class="lbl-s">CTA</span></button>
   </div>
 </nav>
 
@@ -779,33 +799,18 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
     <div class="cine-aurora"></div>
     <div class="cine-grid"></div>
     <div class="cine-giant" id="cineGiant">KEYFRAME</div>
-
     <div class="cine-marquee">
       <div class="run">
         <span>Strategy in Motion <i>&#10022;</i></span><span>Cinematic Web <i>&#10022;</i></span><span>Brand Film <i>&#10022;</i></span><span>Digital Branding <i>&#10022;</i></span><span>Amman . Dubai . Riyadh . Doha . New York <i>&#10022;</i></span>
         <span>Strategy in Motion <i>&#10022;</i></span><span>Cinematic Web <i>&#10022;</i></span><span>Brand Film <i>&#10022;</i></span><span>Digital Branding <i>&#10022;</i></span><span>Amman . Dubai . Riyadh . Doha . New York <i>&#10022;</i></span>
       </div>
     </div>
-
     <div class="cine-center">
       <h2>Ready to <span class="it">begin?</span></h2>
       <div class="pills">
-        <div class="pill-row">
-          <a href="../#contact" class="pill magnetic"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--accent);"></span>Start a project</a>
-          <a href="../work/" class="pill magnetic">View the reel</a>
-        </div>
-        <div class="pill-row">
-          <a href="../services/" class="pill sm magnetic">Services</a>
-          <a href="../work/" class="pill sm magnetic">Work</a>
-          <a href="../showcase/" class="pill sm magnetic">Showcase</a>
-          <a href="../pricing/" class="pill sm magnetic">Pricing</a>
-          <a href="../insights/" class="pill sm magnetic">Insights</a>
-        </div>
-        <div class="pill-row">
-          <a href="../jordan/" class="pill sm magnetic">Jordan</a>
-          <a href="../dubai/" class="pill sm magnetic">Dubai</a>
-          <a href="../doha/" class="pill sm magnetic">Doha</a>
-        </div>
+        <div class="pill-row"><a href="../#contact" class="pill magnetic"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--accent);"></span>Start a project</a><a href="../work/" class="pill magnetic">View the reel</a></div>
+        <div class="pill-row"><a href="../services/" class="pill sm magnetic">Services</a><a href="../work/" class="pill sm magnetic">Work</a><a href="../showcase/" class="pill sm magnetic">Showcase</a><a href="../pricing/" class="pill sm magnetic">Pricing</a><a href="../insights/" class="pill sm magnetic">Insights</a></div>
+        <div class="pill-row"><a href="../jordan/" class="pill sm magnetic">Jordan</a><a href="../dubai/" class="pill sm magnetic">Dubai</a><a href="../doha/" class="pill sm magnetic">Doha</a></div>
       </div>
       <div class="cine-contact-info" style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center; margin-top:30px; font-size:14px; opacity:0.8; font-weight:400; max-width: 800px; padding: 0 20px;">
         <a href="tel:+962791656555" class="magnetic" style="color:var(--fg); text-decoration:none; display:flex; align-items:center; gap:5px;"><span style="opacity:0.5;">JO</span> +962 791 656 555</a>
@@ -819,11 +824,10 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
         <a href="https://linkedin.com/company/keyframe-global" target="_blank" class="magnetic" style="color:var(--fg); text-decoration:none;">LinkedIn</a>
       </div>
     </div>
-
     <div class="cine-bottom">
       <div class="cr">&copy; 2026 Keyframe Global. Strategy in Motion.</div>
       <div class="cine-badge">Crafted with <span class="hb">&#10084;</span> by <b>Keyframe Global</b></div>
-      <button class="totop magnetic" id="toTop" aria-label="Back to top">
+      <button class="totop magnetic" id="toTop" aria-label="Back to top" style="display: none;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l7-7 7 7M12 3v18" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
@@ -831,10 +835,28 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
 </div>
 
 <script>
-/* ============ Concept Lab interactions ============ */
+/* ============ Showcase interactions ============ */
 (function () {
   "use strict";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- category filter ---- */
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".sc-filters button"));
+  var allCards = Array.prototype.slice.call(document.querySelectorAll(".sc-grid > [data-cat]"));
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      filterBtns.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var cat = btn.getAttribute("data-cat");
+      allCards.forEach(function (c) {
+        if (cat === "all" || c.getAttribute("data-cat") === cat) {
+          c.style.display = "";
+        } else {
+          c.style.display = "none";
+        }
+      });
+    });
+  });
 
   /* ---- timeline dock ---- */
   var dock = document.getElementById("labDock");
@@ -843,29 +865,11 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
   var marks = Array.prototype.slice.call(document.querySelectorAll(".lab-mark"));
   var sections = marks.map(function (m) { return document.getElementById(m.getAttribute("data-seq")); });
 
-  /* Dock jumps fly past the one-shot heading reveals, so replay the
-     target section's title on arrival; otherwise it lands already played. */
-  function replaySeqTitle(s) {
-    if (reduced || window.__KF_LITE) return;
-    if (typeof gsap === "undefined" || typeof SplitType === "undefined") return;
-    var h = s.querySelector(".split-h");
-    if (!h || h.__kfReplaying) return;
-    if (h.querySelector(".word")) return; /* initial reveal still pending; it plays on its own */
-    h.__kfReplaying = true;
-    var split = new SplitType(h, { types: "lines, words", tagName: "span" });
-    if (!split.words || !split.words.length) { h.__kfReplaying = false; return; }
-    gsap.fromTo(split.words, { yPercent: 115 }, {
-      yPercent: 0, duration: 1.05, stagger: 0.04, ease: "power4.out", delay: 0.4,
-      onComplete: function () { split.revert(); h.__kfReplaying = false; }
-    });
-  }
-
   marks.forEach(function (m, i) {
     m.addEventListener("click", function () {
       var s = sections[i];
       if (!s) return;
       s.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
-      replaySeqTitle(s);
     });
   });
 
@@ -881,24 +885,12 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
       var pct = (p * 100).toFixed(2) + "%";
       fill.style.width = pct;
       head.style.left = pct;
-      /* active sequence */
       var mid = window.scrollY + window.innerHeight * 0.42;
       var idx = -1;
       sections.forEach(function (s, i) { if (s && s.offsetTop <= mid) idx = i; });
       marks.forEach(function (m, i) { m.classList.toggle("on", i === idx); });
-      /* parallax on live-client features */
-      if (!reduced && !window.__KF_LITE) {
-        pars.forEach(function (el) {
-          var r = el.getBoundingClientRect();
-          if (r.bottom < 0 || r.top > window.innerHeight) return;
-          var prog = (r.top + r.height / 2 - window.innerHeight / 2) / (window.innerHeight / 2 + r.height / 2);
-          var img = el.querySelector("img");
-          if (img) img.style.transform = "scale(1.12) translateY(" + (prog * -3.2).toFixed(2) + "%)";
-        });
-      }
     });
   }
-  var pars = Array.prototype.slice.call(document.querySelectorAll(".lab-par"));
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
   onScroll();
@@ -912,7 +904,7 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
   }
 
   /* ---- compare sliders ---- */
-  Array.prototype.slice.call(document.querySelectorAll(".lab-compare")).forEach(function (c) {
+  Array.prototype.slice.call(document.querySelectorAll(".sc-compare-wrap")).forEach(function (c) {
     var dragging = false;
     function setX(clientX) {
       var r = c.getBoundingClientRect();
@@ -922,7 +914,6 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
       c.setAttribute("aria-valuenow", Math.round(x));
     }
     c.addEventListener("pointerdown", function (e) {
-      if (e.target.closest(".lab-expand")) return;
       dragging = true;
       c.setPointerCapture(e.pointerId);
       setX(e.clientX);
@@ -931,14 +922,14 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
     c.addEventListener("pointerup", function () { dragging = false; });
     c.addEventListener("pointercancel", function () { dragging = false; });
     c.addEventListener("keydown", function (e) {
-      var cur = parseFloat(getComputedStyle(c).getPropertyValue("--x")) || 62;
+      var cur = parseFloat(getComputedStyle(c).getPropertyValue("--x")) || 50;
       if (e.key === "ArrowLeft") { c.style.setProperty("--x", Math.max(4, cur - 5) + "%"); e.preventDefault(); }
       if (e.key === "ArrowRight") { c.style.setProperty("--x", Math.min(96, cur + 5) + "%"); e.preventDefault(); }
     });
   });
 
-  /* one-time hint sweep when the first slider scrolls into view */
-  var firstC = document.querySelector(".lab-compare");
+  /* one-time hint sweep */
+  var firstC = document.querySelector(".sc-compare-wrap");
   if (firstC && "IntersectionObserver" in window && !reduced) {
     var swept = false;
     new IntersectionObserver(function (entries, obs) {
@@ -948,7 +939,7 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
       function sweep(ts) {
         if (!t0) t0 = ts;
         var k = Math.min(1, (ts - t0) / 1200);
-        var x = 62 + Math.sin(k * Math.PI) * -22; /* 62 -> 40 -> 62 */
+        var x = 50 + Math.sin(k * Math.PI) * -20;
         firstC.style.setProperty("--x", x.toFixed(2) + "%");
         if (k < 1) requestAnimationFrame(sweep);
       }
@@ -956,17 +947,20 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
     }, { threshold: 0.5 }).observe(firstC);
   }
 
-  /* ---- lightbox ---- */
+    /* ---- lightbox ---- */
+  var allLbItems = Array.prototype.slice.call(document.querySelectorAll("[data-lb]"));
+  var items = allLbItems;
   var lb = document.getElementById("labLb");
   var lbImg = document.getElementById("labLbImg");
   var lbT = document.getElementById("labLbT");
   var lbN = document.getElementById("labLbN");
   var lbC = document.getElementById("labLbC");
-  var items = Array.prototype.slice.call(document.querySelectorAll("[data-lb]"));
   var cur = 0;
-
   function show(i) {
-    cur = (i + items.length) % items.length;
+    if (!items.length) return;
+    if (i < 0) i = items.length - 1;
+    if (i >= items.length) i = 0;
+    cur = i;
     var el = items[cur];
     lbImg.src = el.getAttribute("data-lb-src");
     lbImg.alt = el.getAttribute("data-lb-title") || "";
@@ -974,8 +968,17 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
     lbN.textContent = el.getAttribute("data-lb-note") || "";
     lbC.textContent = "FRAME " + String(cur + 1).padStart(2, "0") + " / " + String(items.length).padStart(2, "0");
   }
-  function open(i) {
-    show(i);
+  function open(el) {
+    var grp = el.getAttribute("data-lb-group");
+    if (grp) {
+      items = allLbItems.filter(function(x) { return x.getAttribute("data-lb-group") === grp; });
+    } else {
+      // Normal lightbox without group
+      items = allLbItems.filter(function(x) { return !x.hasAttribute("data-lb-group"); });
+    }
+    cur = items.indexOf(el);
+    if (cur === -1) cur = 0;
+    show(cur);
     lb.classList.add("open");
     lb.setAttribute("aria-hidden", "false");
     document.documentElement.classList.add("lab-noscroll");
@@ -985,13 +988,15 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
     lb.setAttribute("aria-hidden", "true");
     document.documentElement.classList.remove("lab-noscroll");
   }
-  items.forEach(function (el, i) {
+  allLbItems.forEach(function (el) {
     el.addEventListener("click", function (e) {
+      if(e.defaultPrevented) return;
       e.preventDefault();
       e.stopPropagation();
-      open(i);
+      open(el);
     });
   });
+  window.openLightbox = open;
   document.getElementById("labLbX").addEventListener("click", close);
   document.getElementById("labLbPv").addEventListener("click", function (e) { e.stopPropagation(); show(cur - 1); });
   document.getElementById("labLbNx").addEventListener("click", function (e) { e.stopPropagation(); show(cur + 1); });
@@ -1005,19 +1010,14 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
 })();
 </script>
 
-<script defer src="../js/site-pre.min.js?v=20260721"></script>
+<script defer src="../js/site-pre.min.js?v=20260806"></script>
   <script defer src="../js/vendor/gsap.min.js"></script>
   <script defer src="../js/vendor/ScrollTrigger.min.js"></script>
   <script defer src="../js/vendor/split-type.min.js"></script>
   <script defer src="../js/vendor/lenis.min.js"></script>
-<script defer src="../js/site.min.js?v=20260721"></script>
+<script defer src="../js/site.min.js?v=20260806"></script>
 
 
-
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/97455962969?text=Hi%20Keyframe%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" class="wa-float" aria-label="Chat with Keyframe Global on WhatsApp">
-  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.36 4 14.96c0 2.11.56 4.16 1.62 5.97L4 29l8.28-2.16a12.1 12.1 0 0 0 3.76.6h.01c6.63 0 12.03-5.36 12.03-11.96C28.08 8.36 22.67 3 16.04 3zm0 21.9h-.01c-1.8 0-3.56-.48-5.09-1.38l-.37-.22-4.91 1.28 1.31-4.77-.24-.39a9.86 9.86 0 0 1-1.52-5.26c0-5.46 4.48-9.9 9.99-9.9 2.67 0 5.18 1.03 7.07 2.9a9.79 9.79 0 0 1 2.93 7.01c0 5.46-4.48 9.9-9.99 9.9zm5.48-7.41c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.41-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.22 5.14 4.52.72.31 1.28.49 1.72.63.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
-</a>
 
 </body>
 </html>

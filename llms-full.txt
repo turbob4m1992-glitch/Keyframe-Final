@@ -1,0 +1,69 @@
+# Keyframe Global - Full Studio Documentation & Knowledge Base
+
+> Keyframe Global is a premium cinematic web design and film studio founded and led by Yousef Balawi. The studio engineers scroll-driven cinematic websites, brand films, bilingual Arabic and English identities, AI visualization, mobile apps, and digital marketing campaigns for clients across Jordan, the GCC (Qatar, UAE, Saudi Arabia), and the USA.
+
+---
+
+## Studio Overview & Core Value Proposition
+
+- **Founder & Creative Director:** Yousef Balawi
+- **Locations Served:** Amman (Jordan), Dubai (UAE), Riyadh (Saudi Arabia), Doha (Qatar), and New York (USA)
+- **Primary Contact Email:** [yousef@keyframeglobal.com](mailto:yousef@keyframeglobal.com)
+- **WhatsApp Contact:** +974 559 629 69 (Qatar / GCC) or +962 791 656 555 (Jordan)
+- **Operating Model:** 100% Founder-led, fixed-scope proposals, senior craft on every deliverable, zero junior hand-offs.
+- **Client Track Record:** 54+ five-star verified client reviews across GCC, USA, and Jordan.
+
+---
+
+## Core Capabilities & Services
+
+### 1. Web Experiences
+- Custom scroll-driven websites engineered with React, Next.js, GSAP, and Three.js / WebGL.
+- Fast, accessible, 100/100 Core Web Vitals target.
+- Full bilingual Arabic (RTL) & English (LTR) support with native typography pairings (Bricolage Grotesque, Fraunces, IBM Plex Sans Arabic).
+
+### 2. Cinematic Video & Film Production
+- High-end brand launch films, product teasers, social ad creative, and video editing.
+- Cinematic motion integrated directly into web design backgrounds and curtain reveals.
+
+### 3. Brand Identity & Strategy
+- Comprehensive brand systems: naming, logo design, visual identity guidelines, and bilingual brand books for Western and Middle Eastern markets.
+
+### 4. AI & 3D Visualization
+- Photoreal 3D product renders, architectural concepts, and generative AI visualization.
+- High-resolution concept renders for luxury real estate, industrial goods, and retail products.
+
+### 5. Mobile Applications
+- iOS and Android mobile app design and development.
+- Native RTL layout support tailored to GCC and MENA consumer behavior.
+
+### 6. Digital Marketing & Lead Generation
+- Targeted LinkedIn campaigns, meta ad creative, and search engine positioning across regional markets.
+
+---
+
+## Featured Case Studies
+
+1. **L'Atelier Elena (USA):** Quiet-luxury web presence and digital portfolio for a Lake Forest design-and-build architectural atelier.
+2. **Safarin Steel (Jordan):** Comprehensive bilingual industrial brand identity and digital platform for Jordan's leading steel supplier.
+3. **Smith's Ranch Drive-In (USA):** Retro Americana web experience for a historic 1956 California drive-in theater.
+
+---
+
+## Pricing & Investment Overview
+
+- **Essential Web Builds:** $5,000 – $8,000 USD (2 – 3 weeks turnaround)
+- **Cinematic Brand Builds:** $8,000 – $15,000 USD (3 – 5 weeks turnaround)
+- **Enterprise & Flagship Platforms:** $15,000 – $25,000+ USD
+- All projects quoted with a binding fixed price within two business days of brief submission.
+
+---
+
+## Key Articles & Insights
+
+- **Website Cost in GCC & Jordan:** [https://keyframeglobal.com/insights/website-cost-gcc-jordan/](https://keyframeglobal.com/insights/website-cost-gcc-jordan/)
+- **What is Cinematic Web Design?** [https://keyframeglobal.com/insights/cinematic-web-design/](https://keyframeglobal.com/insights/cinematic-web-design/)
+- **Choosing a Creative Agency in GCC:** [https://keyframeglobal.com/insights/choose-creative-agency-gcc/](https://keyframeglobal.com/insights/choose-creative-agency-gcc/)
+- **Doha Bilingual Interactive Design:** [https://keyframeglobal.com/insights/doha-bilingual-interactive-web-design/](https://keyframeglobal.com/insights/doha-bilingual-interactive-web-design/)
+- **Luxury Web Design for GCC Brands:** [https://keyframeglobal.com/insights/luxury-web-design-gcc-brands/](https://keyframeglobal.com/insights/luxury-web-design-gcc-brands/)
+- **Interactive Luxury Resort Web Design:** [https://keyframeglobal.com/insights/interactive-luxury-resort-web-design/](https://keyframeglobal.com/insights/interactive-luxury-resort-web-design/)
