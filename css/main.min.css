@@ -611,7 +611,8 @@ header.nav.scrolled {
 
 /* ---------- Performance scores ---------- */
 .scores-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 10px; }
-@media (min-width: 720px) { .scores-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 600px) { .scores-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .scores-grid { grid-template-columns: repeat(5, 1fr); } }
 .score-tile {
   border: 1px solid var(--line); border-radius: 16px; padding: 30px 26px;
   background: var(--surface); text-align: center;
