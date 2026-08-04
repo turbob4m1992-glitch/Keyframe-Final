@@ -17,4 +17,5 @@ jobs:
         with:
           host: keyframeglobal.com
           api_key: 4c5e3d2a1b9f8d7c6e5a4b3c2d1e0f9a
+          api_key_location: https://keyframeglobal.com/4c5e3d2a1b9f8d7c6e5a4b3c2d1e0f9a.txt
           sitemap_locations: https://keyframeglobal.com/sitemap.xml
