@@ -1,0 +1,20 @@
+name: IndexNow Submission
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 12 * * *' # Runs daily as a backup
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  submit-to-bing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit Sitemap to IndexNow
+        uses: jakob-bagterp/index-now-submit-sitemap-urls-action@v1
+        with:
+          host: keyframeglobal.com
+          api_key: 4c5e3d2a1b9f8d7c6e5a4b3c2d1e0f9a
+          sitemap_locations: https://keyframeglobal.com/sitemap.xml
