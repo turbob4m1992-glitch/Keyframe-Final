@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Keyframe Global Creative Studio Website",
   "scripts": {
+    "build": "npx --yes esbuild@0.28.2 css/main.css css/site.css --minify --out-extension:.css=.min.css --outdir=css && npx --yes esbuild@0.28.2 js/home-pre.js js/home.js js/site-pre.js js/site.js --minify --target=es2017 --out-extension:.js=.min.js --outdir=js",
     "dev": "python3 -m http.server 8080",
     "start": "python3 -m http.server 8080",
     "serve": "npx serve -l 8080"

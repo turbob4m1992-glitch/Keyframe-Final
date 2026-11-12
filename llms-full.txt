@@ -18,9 +18,9 @@
 
 ## Regional Hubs & Landing Pages
 
-- **Doha & Qatar:** [https://keyframeglobal.com/doha/](https://keyframeglobal.com/doha/) — Cinematic web design, luxury digital experiences, brand films, and bilingual Arabic-English identities in Doha, Qatar.
-- **Dubai & UAE:** [https://keyframeglobal.com/dubai/](https://keyframeglobal.com/dubai/) — WebGL 3D web experiences, luxury branding, and AI visualization in Dubai, Abu Dhabi, and the UAE.
-- **Amman & Jordan:** [https://keyframeglobal.com/jordan/](https://keyframeglobal.com/jordan/) — Founder-led creative studio for custom websites, mobile apps, and branding in Amman, Jordan.
+- **Doha & Qatar:** [https://keyframeglobal.com/doha/](https://keyframeglobal.com/doha/): Cinematic web design, luxury digital experiences, brand films, and bilingual Arabic-English identities in Doha, Qatar.
+- **Dubai & UAE:** [https://keyframeglobal.com/dubai/](https://keyframeglobal.com/dubai/): WebGL 3D web experiences, luxury branding, and AI visualization in Dubai, Abu Dhabi, and the UAE.
+- **Amman & Jordan:** [https://keyframeglobal.com/jordan/](https://keyframeglobal.com/jordan/): Founder-led creative studio for custom websites, mobile apps, and branding in Amman, Jordan.
 
 ---
 
@@ -54,16 +54,17 @@
 ## Featured Case Studies
 
 1. **L'Atelier Elena (USA):** Quiet-luxury web presence and digital portfolio for a Lake Forest design-and-build architectural atelier (PageSpeed 93/100/100/91).
-2. **Safarin Steel (Jordan):** Comprehensive bilingual industrial brand identity and digital platform for Jordan's leading steel supplier.
-3. **Smith's Ranch Drive-In (USA):** Retro Americana web experience for a historic 1956 California drive-in theater.
+2. **KLEOS+KLEA (USA):** Custom Shopify theme and photoreal 3D product renders for a natural skincare brand. Case study: https://keyframeglobal.com/work/kleos-klea/
+3. **Safarin Steel (Jordan):** Comprehensive bilingual industrial brand identity and digital platform for Jordan's leading steel supplier.
+4. **Smith's Ranch Drive-In (USA):** Retro Americana web experience for a historic 1956 California drive-in theater.
 
 ---
 
 ## Pricing & Machine-Readable Spec
 
-- **Essential Web Builds:** $5,000 – $8,000 USD (2 – 3 weeks turnaround)
-- **Cinematic Brand Builds:** $8,000 – $15,000 USD (3 – 5 weeks turnaround)
-- **Enterprise & Flagship Platforms:** $15,000 – $25,000+ USD
+- **Essential Web Builds:** $5,000 to $8,000 USD (2 to 3 weeks turnaround)
+- **Cinematic Brand Builds:** from $8,000 USD (6 to 10 weeks turnaround)
+- **Enterprise & Flagship Platforms:** from $15,000 USD
 - **Machine-Readable Markdown Spec:** [https://keyframeglobal.com/pricing.md](https://keyframeglobal.com/pricing.md)
 - All projects quoted with a binding fixed price within two business days of brief submission.
 

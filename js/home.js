@@ -294,7 +294,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* Services are a static bento grid now; the old stacked-deck scroll effect was removed. */
+  /* ---------- 7. CASE STUDY IMAGE DRIFT (desktop only) ---------- */
+  if (!isTouch) {
+    gsap.utils.toArray(".case-media img").forEach(function (im) {
+      gsap.fromTo(im, { yPercent: -4 }, {
+        yPercent: 4, ease: "none",
+        scrollTrigger: { trigger: im.parentNode, start: "top bottom", end: "bottom top", scrub: 0.6 }
+      });
+    });
+  }
 });
 
 /* ==== next block ==== */
@@ -316,10 +324,11 @@ document.addEventListener("DOMContentLoaded", function () {
       headers: { Accept: "application/json" }
     }).then(function (r) {
       if (r.ok) {
+        var lead = { form: "contact", service: form.service.value, budget: form.budget.value };
         form.reset();
-        status.textContent = "Frame received. We will reply within one business day.";
+        status.innerHTML = 'Frame received. We will reply within one business day. Want to move faster? <a href="https://calendly.com/keyframeglobal/30min" target="_blank" rel="noopener">Book your discovery call now</a>.';
         status.className = "form-status ok";
-        if (typeof gtag === "function") { gtag("event", "generate_lead", { form: "contact" }); }
+        if (typeof gtag === "function") { gtag("event", "generate_lead", lead); }
       } else { throw new Error(); }
     }).catch(function () {
       status.textContent = "Something went wrong. Email us instead: yousef@keyframeglobal.com";
@@ -450,5 +459,57 @@ document.addEventListener("DOMContentLoaded", function () {
     }, { rootMargin: "80px" }).observe(feed);
   } else {
     start();
+  }
+})();
+
+/* ==== next block ==== */
+
+/* Conversion plumbing: pre-filled brief, click tracking, floating WhatsApp */
+(function () {
+  /* a pricing tier or service CTA pre-selects the matching form option */
+  document.querySelectorAll("[data-budget]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var sel = document.getElementById("cf-budget");
+      if (sel) sel.value = a.getAttribute("data-budget");
+    });
+  });
+
+  /* one delegated listener: every CTA, call, mail, and WhatsApp tap becomes a GA4 event */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("a, button") : null;
+    if (!a || typeof gtag !== "function") return;
+    var href = a.getAttribute("href") || "";
+    var name = a.getAttribute("data-cta");
+    if (name) gtag("event", "cta_click", { cta: name });
+    if (href.indexOf("wa.me") > -1) gtag("event", "contact_click", { method: "whatsapp", placement: a.id === "waFloat" ? "float" : "inline" });
+    else if (href.indexOf("calendly.com") > -1) gtag("event", "contact_click", { method: "calendly" });
+    else if (href.indexOf("mailto:") === 0) gtag("event", "contact_click", { method: "email" });
+    else if (href.indexOf("tel:") === 0) gtag("event", "contact_click", { method: "phone" });
+  }, true);
+
+  /* first interaction with the brief: lets GA4 show form starts against form sends */
+  var form = document.getElementById("contactForm"), started = false;
+  if (form) form.addEventListener("focusin", function () {
+    if (started) return; started = true;
+    if (typeof gtag === "function") gtag("event", "form_start", { form: "contact" });
+  });
+
+  /* WhatsApp button: appears once the hero is behind you, steps aside for the brief and the footer */
+  var wa = document.getElementById("waFloat");
+  if (wa && "IntersectionObserver" in window) {
+    var past = false, blocked = {};
+    function sync() {
+      var hide = false; for (var k in blocked) if (blocked[k]) hide = true;
+      wa.classList.toggle("on", past && !hide);
+    }
+    window.addEventListener("scroll", function () {
+      var p = window.scrollY > window.innerHeight * 0.7;
+      if (p !== past) { past = p; sync(); }
+    }, { passive: true });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { blocked[en.target.className || en.target.id] = en.isIntersecting; });
+      sync();
+    }, { threshold: 0.05 });
+    [document.getElementById("contactForm"), document.querySelector(".curtain")].forEach(function (el) { if (el) io.observe(el); });
   }
 })();

@@ -23,7 +23,7 @@
       return;
     }
     try { sessionStorage.setItem("kf-intro", "1"); } catch (e) {}
-    setTimeout(finishIntro, 5000);            /* never gate content on a stalled rAF */
+    setTimeout(finishIntro, 3500);            /* never gate content on a stalled rAF */
     setTimeout(function () { if (loader.parentNode) loader.parentNode.removeChild(loader); }, 8000);
 
     root.classList.add("kf-intro-lock");
@@ -163,7 +163,7 @@
     }
 
     /* ---- timeline: draw -> charge -> black hole collapse ---- */
-    var DRAW = 2050, CHARGE = 420, COLLAPSE = 950;
+    var DRAW = 1150, CHARGE = 260, COLLAPSE = 620;   /* ~2s total: long enough to land, short enough not to cost the visit */
     var phase = 0, t0 = null, lastBolt = 0, lastFlick = 0, endFired = false;
     var waves = [], streaks = [], core = null, bh = null;
     var strokeG = svg.querySelector("#igStroke");
@@ -477,27 +477,32 @@
     vi.lastChild && vi.removeChild(vi.lastChild);
   }
 
-  /* ---------- GLOW CARDS (pointer spotlight) ---------- */
+  /* ---------- GLOW CARDS (pointer spotlight; rects cached, one write per frame) ---------- */
   var glowCards = document.querySelectorAll(".glow-card");
-var _glowRects = [];
-function _updateGlowRects() {
-  _glowRects = [];
-  for (var _i = 0; _i < glowCards.length; _i++) _glowRects.push(glowCards[_i].getBoundingClientRect());
-}
-window.addEventListener("resize", _updateGlowRects, {passive: true});
-window.addEventListener("scroll", _updateGlowRects, {passive: true});
-_updateGlowRects();
-window.addEventListener("pointermove", function(e) {
-  if (_glowRects.length !== glowCards.length) _updateGlowRects();
+  var glowRects = null, glowX = 0, glowY = 0, glowQueued = false;
+  function invalidateGlow() { glowRects = null; }
+  window.addEventListener("resize", invalidateGlow, { passive: true });
+  window.addEventListener("scroll", invalidateGlow, { passive: true });
+  function paintGlow() {
+    glowQueued = false;
+    if (!glowRects) {
+      glowRects = [];
+      for (var g = 0; g < glowCards.length; g++) glowRects.push(glowCards[g].getBoundingClientRect());
+    }
     for (var i = 0; i < glowCards.length; i++) {
-      var c = glowCards[i];
-      var r = c.getBoundingClientRect();
-      if (e.clientX > r.left - 60 && e.clientX < r.right + 60 && e.clientY > r.top - 60 && e.clientY < r.bottom + 60) {
-        c.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        c.style.setProperty("--my", (e.clientY - r.top) + "px");
+      var r = glowRects[i];
+      if (glowX > r.left - 60 && glowX < r.right + 60 && glowY > r.top - 60 && glowY < r.bottom + 60) {
+        glowCards[i].style.setProperty("--mx", (glowX - r.left) + "px");
+        glowCards[i].style.setProperty("--my", (glowY - r.top) + "px");
       }
     }
-  }, { passive: true });
+  }
+  if (!isTouch) {
+    window.addEventListener("pointermove", function (e) {
+      glowX = e.clientX; glowY = e.clientY;
+      if (!glowQueued) { glowQueued = true; requestAnimationFrame(paintGlow); }
+    }, { passive: true });
+  }
 
   /* ---------- ATMOSPHERE FIELD: WebGL aurora shader, constellation fallback ---------- */
   var canvas = document.getElementById("field");
@@ -616,7 +621,12 @@ window.addEventListener("pointermove", function(e) {
     window.__kfFieldRetheme = retheme;
     if (reduced) { frame(t0); return true; }
     window.addEventListener("pointermove", function (e) { mx = e.clientX; my = e.clientY; }, { passive: true });
-    (function loop(now) { frame(now); requestAnimationFrame(loop); })(t0);
+    var skip = false;
+    (function loop(now) {
+      /* phones: 30fps is indistinguishable on slow gradients and halves GPU load */
+      if (!isTouch || (skip = !skip)) frame(now);
+      requestAnimationFrame(loop);
+    })(t0);
     return true;
   }
 
@@ -774,10 +784,13 @@ window.addEventListener("pointermove", function(e) {
           el.style.transitionDelay = Math.min(i * 70, 280) + "ms";
           el.style.opacity = 1;
           el.style.transform = "translateY(0)";
-          el.style.filter = "blur(0px)";
+          if (!isTouch) el.style.filter = "blur(0px)";
           el.addEventListener("transitionend", function onEnd() {
             el.removeEventListener("transitionend", onEnd);
+            /* hand the element back to its stylesheet so hover lifts and tilts work again */
             el.style.transitionDelay = "";
+            el.style.transition = "";
+            el.style.transform = "";
             el.style.filter = "";
             el.style.willChange = "";
           });
@@ -788,10 +801,10 @@ window.addEventListener("pointermove", function(e) {
 
     document.querySelectorAll(".reveal").forEach(function(el) {
       el.style.opacity = 0;
-      el.style.transform = "translateY(42px)";
-      el.style.filter = "blur(10px)";
-      el.style.willChange = "opacity, transform, filter";
-      el.style.transition = "opacity 1s " + easing + ", transform 1s " + easing + ", filter 1s " + easing;
+      el.style.transform = "translateY(" + (isTouch ? 24 : 42) + "px)";
+      if (!isTouch) el.style.filter = "blur(10px)";
+      el.style.willChange = isTouch ? "opacity, transform" : "opacity, transform, filter";
+      el.style.transition = "opacity 0.9s " + easing + ", transform 0.9s " + easing + (isTouch ? "" : ", filter 0.9s " + easing);
       revealObserver.observe(el);
     });
 
@@ -1007,7 +1020,7 @@ window.addEventListener("pointermove", function(e) {
         for (var k in navAnchors) navAnchors[k].classList.toggle("active", k === id);
       });
     }, { rootMargin: "-45% 0px -45% 0px" });
-    ["hero", "work", "services", "method", "voices", "contact"].forEach(function (id) {
+    ["hero", "services", "method", "voices", "contact"].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) sectionObs.observe(el);
     });

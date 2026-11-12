@@ -25,6 +25,7 @@
 ## Selected Work & Performance
 
 - [Home Page Performance Audit](https://keyframeglobal.com/): Measured July 2026 via Google PageSpeed Insights (Performance 98, Accessibility 99, Best Practices 100, SEO 100, Agentic Browsing 3/3)
+- [KLEOS+KLEA case study](https://keyframeglobal.com/work/kleos-klea/): Custom Shopify theme and photoreal 3D product renders for a US natural skincare brand (Keyframe is a Shopify Partner)
 - [L'Atelier Elena case study](https://keyframeglobal.com/work/latelier-elena/): Quiet-luxury web presence for a US design-and-build atelier (PageSpeed 93/100/100/91 desktop)
 - [Safarin Steel case study](https://keyframeglobal.com/work/safarin-steel/): Bilingual industrial identity and platform for Jordan's premium steel supplier
 - [Smith's Ranch Drive-In case study](https://keyframeglobal.com/work/smiths-ranch-drive-in/): Retro Americana site for a 1956 California drive-in theater
