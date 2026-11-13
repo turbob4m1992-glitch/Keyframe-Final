@@ -108,6 +108,7 @@
 }
 .sc-card .sc-img {
   width: 100%;
+  height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
@@ -115,6 +116,10 @@
 }
 .sc-card:hover .sc-img { transform: scale(1.05); }
 .sc-card.wide .sc-img { aspect-ratio: 16 / 9; }
+.sc-card .sc-img.sc-portrait { aspect-ratio: 3 / 4; }
+@media (max-width: 600px) {
+  .sc-card .sc-img.sc-portrait { aspect-ratio: 1 / 1; object-position: center 55%; }
+}
 
 /* viewfinder corners on hover */
 .sc-card::before, .sc-card::after { content: ""; position: absolute; width: 18px; height: 18px; z-index: 3; opacity: 0; transition: opacity 0.35s; pointer-events: none; }
@@ -437,28 +442,28 @@ html.lab-noscroll, html.lab-noscroll body { overflow: hidden !important; }
 
         <!-- Client 3D: KLEOS+KLEA -->
         <div class="sc-card reveal" data-lb data-lb-src="../img/work/kleos-klea/studio-io-essential-minerals.webp" data-lb-title="KLEOS+KLEA | IÓ Essential Minerals" data-lb-note="Studio render, 50 ml bottle. Photoreal 3D product render for a live client.">
-          <img class="sc-img" style="aspect-ratio:3/4;" src="../img/work/kleos-klea/studio-io-essential-minerals.webp" srcset="../img/work/kleos-klea/studio-io-essential-minerals-480.webp 480w, ../img/work/kleos-klea/studio-io-essential-minerals.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="IÓ Essential Minerals, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
+          <img class="sc-img sc-portrait" src="../img/work/kleos-klea/studio-io-essential-minerals.webp" srcset="../img/work/kleos-klea/studio-io-essential-minerals-480.webp 480w, ../img/work/kleos-klea/studio-io-essential-minerals.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="IÓ Essential Minerals, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
           <span class="sc-chip">Live Client</span>
           <div class="sc-info"><h3>IÓ Essential Minerals</h3><p>Studio render, 50 ml bottle for KLEOS+KLEA.</p><span class="sc-tag">3D Product</span></div>
         </div>
 
         <!-- Client 3D: KLEOS+KLEA -->
         <div class="sc-card reveal" data-lb data-lb-src="../img/work/kleos-klea/studio-akatha-nutrient-cleanser.webp" data-lb-title="KLEOS+KLEA | AKATHA Nutrient Cleanser" data-lb-note="Studio render, Back Bar jar. Photoreal 3D product render for a live client.">
-          <img class="sc-img" style="aspect-ratio:3/4;" src="../img/work/kleos-klea/studio-akatha-nutrient-cleanser.webp" srcset="../img/work/kleos-klea/studio-akatha-nutrient-cleanser-480.webp 480w, ../img/work/kleos-klea/studio-akatha-nutrient-cleanser.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="AKATHA Nutrient Cleanser, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
+          <img class="sc-img sc-portrait" src="../img/work/kleos-klea/studio-akatha-nutrient-cleanser.webp" srcset="../img/work/kleos-klea/studio-akatha-nutrient-cleanser-480.webp 480w, ../img/work/kleos-klea/studio-akatha-nutrient-cleanser.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="AKATHA Nutrient Cleanser, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
           <span class="sc-chip">Live Client</span>
           <div class="sc-info"><h3>AKATHA Nutrient Cleanser</h3><p>Studio render, Back Bar jar for KLEOS+KLEA.</p><span class="sc-tag">3D Product</span></div>
         </div>
 
         <!-- Client 3D: KLEOS+KLEA -->
         <div class="sc-card reveal" data-lb data-lb-src="../img/work/kleos-klea/dark-onisi-essential-vitamins-15g.webp" data-lb-title="KLEOS+KLEA | ÓNISI Essential Vitamins" data-lb-note="Dark hero render. Photoreal 3D product render for a live client.">
-          <img class="sc-img" style="aspect-ratio:3/4;" src="../img/work/kleos-klea/dark-onisi-essential-vitamins-15g.webp" srcset="../img/work/kleos-klea/dark-onisi-essential-vitamins-15g-480.webp 480w, ../img/work/kleos-klea/dark-onisi-essential-vitamins-15g.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="ÓNISI Essential Vitamins, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
+          <img class="sc-img sc-portrait" src="../img/work/kleos-klea/dark-onisi-essential-vitamins-15g.webp" srcset="../img/work/kleos-klea/dark-onisi-essential-vitamins-15g-480.webp 480w, ../img/work/kleos-klea/dark-onisi-essential-vitamins-15g.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="ÓNISI Essential Vitamins, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
           <span class="sc-chip">Live Client</span>
           <div class="sc-info"><h3>ÓNISI Essential Vitamins</h3><p>Dark hero render for KLEOS+KLEA.</p><span class="sc-tag">3D Product</span></div>
         </div>
 
         <!-- Client 3D: KLEOS+KLEA -->
         <div class="sc-card reveal" data-lb data-lb-src="../img/work/kleos-klea/dark-prima-rosa-balancing-oil-50ml.webp" data-lb-title="KLEOS+KLEA | PRIMA ROSA Balancing Oil" data-lb-note="Dark hero render. Photoreal 3D product render for a live client.">
-          <img class="sc-img" style="aspect-ratio:3/4;" src="../img/work/kleos-klea/dark-prima-rosa-balancing-oil-50ml.webp" srcset="../img/work/kleos-klea/dark-prima-rosa-balancing-oil-50ml-480.webp 480w, ../img/work/kleos-klea/dark-prima-rosa-balancing-oil-50ml.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="PRIMA ROSA Balancing Oil, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
+          <img class="sc-img sc-portrait" src="../img/work/kleos-klea/dark-prima-rosa-balancing-oil-50ml.webp" srcset="../img/work/kleos-klea/dark-prima-rosa-balancing-oil-50ml-480.webp 480w, ../img/work/kleos-klea/dark-prima-rosa-balancing-oil-50ml.webp 900w" sizes="(max-width: 600px) 46vw, 25vw" width="900" height="1200" alt="PRIMA ROSA Balancing Oil, photoreal 3D product render for KLEOS+KLEA" loading="lazy" decoding="async" />
           <span class="sc-chip">Live Client</span>
           <div class="sc-info"><h3>PRIMA ROSA Balancing Oil</h3><p>Dark hero render for KLEOS+KLEA.</p><span class="sc-tag">3D Product</span></div>
         </div>
